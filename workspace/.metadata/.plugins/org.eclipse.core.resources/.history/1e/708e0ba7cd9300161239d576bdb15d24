@@ -1,0 +1,52 @@
+package cat.prv.om.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="TBL_SERVICES",schema="OMADM")
+public class TblServices {
+
+	@Id
+	@Column(name="SERVICES_ID")
+	private String servicesId;
+	
+	@Column(name="ACCOUNTS_ID")
+	private String accountsId;
+	
+	@Column(name="ORDER_ID")
+	private String orderId;
+	
+	@Column(name="SERVICE_TYPE")
+	private Integer serviceType;
+	
+	@Column(name="RT_ACCOUNT_INTERNAL_ID")
+	private Integer rtAccountInternald;
+	
+	@Column(name="RT_SERVICE_INTERNAL_ID")
+	private Integer rtServiceInternalId;
+	
+	@Column(name="STATUS_REASON_ID")
+	private Integer statusReasonId;
+	
+	@Column(name="SERVICE_EXTERNALID_01")
+	private String msisdn;
+	
+	@Column(name="SERVICE_ICCID_FX")
+	private String iccid;
+	
+	@Column(name="SERVICE_EXTERNALID_02")
+	private String imsi;
+	
+	@Column(name="SERVICE_EXTERNALID_TYP_01_RT")
+	private String rtServiceType;
+	
+	@Column(name="RATING_STATE")
+	private Integer ratingState;
+	
+	@Column(name="STATUS")
+	private String status;
+	
+}

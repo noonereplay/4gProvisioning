@@ -1,0 +1,12 @@
+package cat.prv.web.om.entity;
+
+import java.util.Date;
+
+public class TransHdr {
+
+	private String transId;
+	private String refTransId;
+	private Date createdDate;
+	private String tranGroupId;
+	
+}

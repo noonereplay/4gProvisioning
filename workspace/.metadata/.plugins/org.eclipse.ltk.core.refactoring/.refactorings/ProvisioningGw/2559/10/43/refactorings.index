@@ -1,0 +1,10 @@
+1476630965700	Delete element
+1476633495329	Delete element
+1476633788241	Rename resource 'ApplicationDispatch.xml'
+1476634062384	Rename resource 'provisioning-gw-servlet.xml'
+1476634719043	Move 'index.jsp' to 'jsp'
+1476636694584	Rename resource 'springweb-servlet.xml'
+1476638165924	Rename resource 'jsp'
+1476639203569	Rename resource 'spring-web-servlet.xml'
+1476640245032	Rename package 'cat.prv.web.om.entity'
+1476641672799	Rename type 'TBL_SERVICE'

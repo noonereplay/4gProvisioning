@@ -1,0 +1,84 @@
+package cat.prv.om.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="TRANS_DTL",schema="OMADM")
+public class TransDtl {
+
+	@Id
+	@Column(name="TRANS_DTL_ID")
+	private String transDtlId;
+	
+	@Column(name="TRANS_TYPE_ID")
+	private String transTypeId;
+	
+	@Column(name="PROCESS_CODE")
+	private String processCode;
+	
+	@Column(name="LINK_ID")
+	private String linkId;
+	
+	@Column(name="MSISDN")
+	private String msisdn;
+	
+	@ManyToOne(optional=false)
+	@JoinColumn(name="TRANS_ID",referencedColumnName="TRANS_ID")
+	private TransHdr transHdr;
+
+	public String getTransDtlId() {
+		return transDtlId;
+	}
+
+	public void setTransDtlId(String transDtlId) {
+		this.transDtlId = transDtlId;
+	}
+
+	public String getTransTypeId() {
+		return transTypeId;
+	}
+
+	public void setTransTypeId(String transTypeId) {
+		this.transTypeId = transTypeId;
+	}
+
+	public String getProcessCode() {
+		return processCode;
+	}
+
+	public void setProcessCode(String processCode) {
+		this.processCode = processCode;
+	}
+
+	public String getLinkId() {
+		return linkId;
+	}
+
+	public void setLinkId(String linkId) {
+		this.linkId = linkId;
+	}
+
+	public String getMsisdn() {
+		return msisdn;
+	}
+
+	public void setMsisdn(String msisdn) {
+		this.msisdn = msisdn;
+	}
+
+	public TransHdr getTransHdr() {
+		return transHdr;
+	}
+
+	public void setTransHdr(TransHdr transHdr) {
+		this.transHdr = transHdr;
+	}
+	
+	
+	
+}

@@ -1,0 +1,45 @@
+package cat.prv.web.om.entity;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.resource.spi.ConfigProperty;
+
+@Entity
+@Table(name="TRANS_HDR",schema="OMADM")
+public class TransHdr {
+
+	@Id
+	@Column(name="TRANS_ID")
+	private String transId;
+	
+	@Column(name="REF_TRANS_ID")
+	private String refTransId;
+	
+	@Column(name="CREATED_DATED")
+	@Temporal(TemporalType.DATE)
+	private Date createdDate;
+	
+	@Column(name="FUTURE_DATE")
+	@Temporal(TemporalType.DATE)
+	private Date futureDate;
+	
+	@Column(name="TRANS_GROUP_ID")
+	private String transGroupId;
+	
+	@Column(name="PROCESS_CODE")
+	private String processCode;
+	
+	@Column(name="PROCESS_RESULT")
+	private String processResult;
+	
+	@Column(name="UPDATED_DATE")
+	@Temporal(TemporalType.DATE)
+	private Date updatedDate;
+	
+}

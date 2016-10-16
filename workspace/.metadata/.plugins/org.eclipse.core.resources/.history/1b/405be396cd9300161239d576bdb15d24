@@ -1,0 +1,5 @@
+package cat.prv.om.entity;
+
+public class TblServices {
+
+}
