@@ -1,0 +1,51 @@
+package cat.prv.om.entity;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="TBL_RT_OFFER",schema="OMADM")
+public class TblRtOffers {
+
+	@Id
+	@Column(name="RT_OFFER_ID")
+	private String rtOfferId;
+	
+	@Column(name="SERVICES_ID")
+	private String servicesId;
+	
+	@Column(name="ORDER_ID")
+	private String orderId;
+	
+	@Column(name="OFFER_TYPE")
+	private Integer offerType;
+	
+	@Column(name="OFFER_ID")
+	private Integer offerId;
+	
+	@Column(name="OFFER_INST_ID")
+	private Integer offerInstId;
+	
+	@Column(name="DATE_ACTIVE")
+	private Date dateActive;
+	
+	@Column(name="DATE_INACTIVE")
+	private Date dateInactive;
+	
+	@Column(name="CONNECT_REASON")
+	private Integer connnectReason;
+	
+	@Column(name="SO_LEVEL")
+	private Integer soLevel;
+	
+	@Column(name="STATUS")
+	private String status;
+	
+	@Column(name="REASON")
+	private String reason;
+	
+}

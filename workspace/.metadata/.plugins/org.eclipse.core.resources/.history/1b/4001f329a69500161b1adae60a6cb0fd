@@ -1,0 +1,26 @@
+package cat.prv.om.dao;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
+
+import cat.prv.om.entity.TblServicesHistory;
+import cat.prv.om.entity.TransDtl;
+
+@Repository
+public class TransDtlDao {
+
+	@PersistenceContext
+	private EntityManager em;
+	
+	public void setEm(EntityManager em) {
+		this.em = em;
+	}
+	
+	public TransDtl getTblServices(String transDtlId){
+		return em.find(TransDtl.class, transDtlId);
+	}
+	
+	
+}

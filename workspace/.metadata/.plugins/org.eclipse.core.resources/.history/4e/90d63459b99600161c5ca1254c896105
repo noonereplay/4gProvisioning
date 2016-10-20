@@ -1,0 +1,115 @@
+package cat.prv.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import cat.prv.om.dao.CfgRtSoExtDao;
+import cat.prv.om.dao.TblRtOffersDao;
+import cat.prv.om.dao.TblRtOffersDelDao;
+import cat.prv.om.dao.TblServicesDao;
+import cat.prv.om.dao.TblServicesHistoryDao;
+import cat.prv.om.dao.TransDtlDao;
+import cat.prv.om.dao.TransHdrDao;
+import cat.prv.om.entity.CfgRtSoExt;
+import cat.prv.om.entity.TblServices;
+import cat.prv.om.entity.TransDtl;
+import cat.prv.om.entity.TransHdr;
+import cat.prv.util.OrderType;
+
+public class OrderService {
+
+	@Autowired
+	private TransHdrDao transHdrDao;
+	@Autowired
+	private TransDtlDao transDtlDao;
+	@Autowired
+	private TblServicesDao tblServicesDao;
+	@Autowired
+	private TblServicesHistoryDao tblServicesHistoryDao;
+	@Autowired
+	private TblRtOffersDao tblRtOffersDao;
+	@Autowired
+	private TblRtOffersDelDao tblRtOffersDelDao;
+	@Autowired
+	private CfgRtSoExtDao cfgRtSoExtDao;
+	
+	@Autowired
+	private Provisioning4GService provisioning4gService;
+	
+	public void setTransHdrDao(TransHdrDao transHdrDao) {
+		this.transHdrDao = transHdrDao;
+	}
+
+	public void setTransDtlDao(TransDtlDao transDtlDao) {
+		this.transDtlDao = transDtlDao;
+	}
+
+	public void setTblServicesDao(TblServicesDao tblServicesDao) {
+		this.tblServicesDao = tblServicesDao;
+	}
+
+	public void setTblServicesHistoryDao(TblServicesHistoryDao tblServicesHistoryDao) {
+		this.tblServicesHistoryDao = tblServicesHistoryDao;
+	}
+
+	public void setTblRtOffersDao(TblRtOffersDao tblRtOffersDao) {
+		this.tblRtOffersDao = tblRtOffersDao;
+	}
+
+	public void setTblRtOffersDelDao(TblRtOffersDelDao tblRtOffersDelDao) {
+		this.tblRtOffersDelDao = tblRtOffersDelDao;
+	}
+	
+	public void setCfgRtSoExtDao(CfgRtSoExtDao cfgRtSoExtDao) {
+		this.cfgRtSoExtDao = cfgRtSoExtDao;
+	}
+
+	public void setProvisioning4gService(Provisioning4GService provisioning4gService) {
+		this.provisioning4gService = provisioning4gService;
+	}
+
+	public void makeProvisioning4G(String transId) throws Exception {
+		
+		TransHdr transHdr = transHdrDao.getTransHdr(transId);
+		List<TransDtl> dtl = transHdr.getTransDtl();
+		
+		String msisdn = dtl.stream().filter(d -> d.getMsisdn() != null).findFirst().get().getMsisdn();
+		
+		boolean isProv = false;
+		
+		if(transHdr.getOrderType() == OrderType.ADD_SO2){
+			Integer offerId = dtl.stream().filter(d -> d.getOfferId() != null).findFirst().get().getOfferId();
+			CfgRtSoExt ext = cfgRtSoExtDao.getCfgRtSoExt(String.valueOf(offerId.intValue()));
+			if(ext!=null && ext.isProv4G()){
+				isProv = true;
+			}
+		}else if(transHdr.getOrderType() == OrderType.DEL_SO2){
+			Integer offerId = dtl.stream().filter(d -> d.getOfferId() != null).findFirst().get().getOfferId();
+			CfgRtSoExt ext = cfgRtSoExtDao.getCfgRtSoExt(String.valueOf(offerId.intValue()));
+			
+			TblServices tblServices = tblServicesDao.getTblServiceByMsisdn(msisdn);
+			
+			
+			if(ext!=null && ext.isProv4G()){
+				isProv = true;
+			}
+			
+			
+		}
+		
+		
+		
+		doProvisining(msisdn,isProv);
+		
+	}
+	
+	private void doProvisining(String msisdn, boolean isProv4G){
+		if(isProv4G){
+			provisioning4gService.Enable4G(msisdn);
+		}else{
+			provisioning4gService.Diable4G(msisdn);
+		}
+	}
+	
+}

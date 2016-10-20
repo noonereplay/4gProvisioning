@@ -1,0 +1,5 @@
+package cat.prv.util;
+
+public enum OrderType {
+
+}

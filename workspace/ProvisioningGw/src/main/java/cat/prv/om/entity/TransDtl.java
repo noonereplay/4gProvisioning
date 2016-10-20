@@ -1,5 +1,7 @@
 package cat.prv.om.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,7 +11,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="TRANS_DTL",schema="OMADM")
-public class TransDtl {
+public class TransDtl implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3368719598983075290L;
 
 	@Id
 	@Column(name="TRANS_DTL_ID")
@@ -22,7 +29,7 @@ public class TransDtl {
 	private String processCode;
 	
 	@Column(name="LINK_ID")
-	private String linkId;
+	private Integer linkId;
 	
 	@Column(name="MSISDN")
 	private String msisdn;
@@ -34,16 +41,16 @@ public class TransDtl {
 	private String imsi;
 	
 	@Column(name="OFFER_ID")
-	private String offerId;
+	private Integer offerId;
 	
 	@Column(name="RATING_STATE")
-	private String ratingState;
+	private Integer ratingState;
 	
 	@Column(name="STATUS")
 	private String status;
 	
 	@Column(name="PROVISION_STATUS")
-	private Integer provisionStatus;
+	private String provisionStatus;
 	
 	@Column(name="ORDER_ID")
 	private String orderId;
@@ -57,6 +64,17 @@ public class TransDtl {
 	@Column(name="ERROR_CODE")
 	private String errorCode;
 	
+	@Column(name="TRANS_ID",insertable=false,updatable=false)
+	private String transId;
+	
+	public String getTransId() {
+		return transId;
+	}
+
+	public void setTransId(String transId) {
+		this.transId = transId;
+	}
+
 	@ManyToOne(optional=false)
 	@JoinColumn(name="TRANS_ID",referencedColumnName="TRANS_ID")
 	private TransHdr transHdr;
@@ -85,11 +103,11 @@ public class TransDtl {
 		this.processCode = processCode;
 	}
 
-	public String getLinkId() {
+	public Integer getLinkId() {
 		return linkId;
 	}
 
-	public void setLinkId(String linkId) {
+	public void setLinkId(Integer linkId) {
 		this.linkId = linkId;
 	}
 
@@ -125,19 +143,19 @@ public class TransDtl {
 		this.imsi = imsi;
 	}
 
-	public String getOfferId() {
+	public Integer getOfferId() {
 		return offerId;
 	}
 
-	public void setOfferId(String offerId) {
+	public void setOfferId(Integer offerId) {
 		this.offerId = offerId;
 	}
 
-	public String getRatingState() {
+	public Integer getRatingState() {
 		return ratingState;
 	}
 
-	public void setRatingState(String ratingState) {
+	public void setRatingState(Integer ratingState) {
 		this.ratingState = ratingState;
 	}
 
@@ -149,11 +167,11 @@ public class TransDtl {
 		this.status = status;
 	}
 
-	public Integer getProvisionStatus() {
+	public String getProvisionStatus() {
 		return provisionStatus;
 	}
 
-	public void setProvisionStatus(Integer provisionStatus) {
+	public void setProvisionStatus(String provisionStatus) {
 		this.provisionStatus = provisionStatus;
 	}
 
@@ -187,6 +205,15 @@ public class TransDtl {
 
 	public void setErrorCode(String errorCode) {
 		this.errorCode = errorCode;
+	}
+
+	@Override
+	public String toString() {
+		return "TransDtl [transDtlId=" + transDtlId + ", transTypeId=" + transTypeId + ", processCode=" + processCode
+				+ ", linkId=" + linkId + ", msisdn=" + msisdn + ", iccid=" + iccid + ", imsi=" + imsi + ", offerId="
+				+ offerId + ", ratingState=" + ratingState + ", status=" + status + ", provisionStatus="
+				+ provisionStatus + ", orderId=" + orderId + ", systemCode=" + systemCode + ", systemSeq=" + systemSeq
+				+ ", errorCode=" + errorCode + ", transId=" + transId + ", transHdr=" + transHdr + "]";
 	}
 	
 	

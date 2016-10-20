@@ -1,11 +1,11 @@
-#Sun Oct 16 23:11:11 ICT 2016
+#Thu Oct 20 09:46:08 ICT 2016
 vl=How many times the 'Finish' button pressed during the day
 l=Wizard class name
 ct=jbt
-d=1476634271947
+d=1476931568815
 c=0
 cmp=usage
 a=finishWizard
 cl=org.springframework.ide.eclipse.beans.ui.wizards.NewBeansConfigWizard
 v=2.2.1
-s=2
+s=0

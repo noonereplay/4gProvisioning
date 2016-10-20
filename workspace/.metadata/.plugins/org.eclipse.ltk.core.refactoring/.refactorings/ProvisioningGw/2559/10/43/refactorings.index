@@ -8,3 +8,16 @@
 1476639203569	Rename resource 'spring-web-servlet.xml'
 1476640245032	Rename package 'cat.prv.web.om.entity'
 1476641672799	Rename type 'TBL_SERVICE'
+1476671626555	Rename resource 'springDispatch-servlet.xml'
+1476674311800	Rename type 'TbleRtOffersDel'
+1476698245142	Rename resource 'spring-web-servlet.xml'
+1476844307793	Rename type 'TblServiceDao'
+1476844481747	Rename type 'RtOfferIdDel'
+1476844566493	Rename type 'TblRtOfferDelDao'
+1476852142028	Rename resource 'ApplicationContextTest.xml'
+1476852195769	Copy file
+1476852236598	Copy file
+1476958095432	Rename package 'cat.prv.om.services'
+1476959605709	Rename type 'CfgRtExt'
+1476959776301	Move compilation unit
+1476960019924	Rename type 'CfgRtSoExt'

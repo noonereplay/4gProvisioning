@@ -1,0 +1,49 @@
+package cat.prv.services;
+
+import cat.prv.om.dao.TblRtOffersDao;
+import cat.prv.om.dao.TblRtOffersDelDao;
+import cat.prv.om.dao.TblServicesDao;
+import cat.prv.om.dao.TblServicesHistoryDao;
+import cat.prv.om.dao.TransDtlDao;
+import cat.prv.om.dao.TransHdrDao;
+
+public class OrderService {
+
+	private TransHdrDao transHdrDao;
+	
+	private TransDtlDao transDtlDao;
+	
+	private TblServicesDao tblServicesDao;
+	
+	private TblServicesHistoryDao tblServicesHistoryDao;
+	
+	private TblRtOffersDao tblRtOffersDao;
+	
+	private TblRtOffersDelDao tblRtOffersDelDao;
+
+	public void setTransHdrDao(TransHdrDao transHdrDao) {
+		this.transHdrDao = transHdrDao;
+	}
+
+	public void setTransDtlDao(TransDtlDao transDtlDao) {
+		this.transDtlDao = transDtlDao;
+	}
+
+	public void setTblServicesDao(TblServicesDao tblServicesDao) {
+		this.tblServicesDao = tblServicesDao;
+	}
+
+	public void setTblServicesHistoryDao(TblServicesHistoryDao tblServicesHistoryDao) {
+		this.tblServicesHistoryDao = tblServicesHistoryDao;
+	}
+
+	public void setTblRtOffersDao(TblRtOffersDao tblRtOffersDao) {
+		this.tblRtOffersDao = tblRtOffersDao;
+	}
+
+	public void setTblRtOffersDelDao(TblRtOffersDelDao tblRtOffersDelDao) {
+		this.tblRtOffersDelDao = tblRtOffersDelDao;
+	}
+	
+	
+}

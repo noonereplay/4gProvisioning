@@ -1,21 +1,31 @@
 package cat.prv.om.entity;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import cat.prv.util.OrderType;
 
 
 @Entity
 @Table(name="TRANS_HDR",schema="OMADM")
-public class TransHdr {
+public class TransHdr implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7253631408500888617L;
 
 	@Id
 	@Column(name="TRANS_ID")
@@ -51,8 +61,13 @@ public class TransHdr {
 	@Column(name="STATUS")
 	private String status;
 	
+	
+	
 	@OneToMany(mappedBy="transHdr",targetEntity=TransDtl.class,fetch=FetchType.EAGER)
-	private TransDtl transDtl;
+	private List<TransDtl> transDtl;
+	
+	@Transient
+	private OrderType orderType;
 
 	public String getTransId() {
 		return transId;
@@ -118,11 +133,13 @@ public class TransHdr {
 		this.updatedDate = updatedDate;
 	}
 
-	public TransDtl getTransDtl() {
+	
+
+	public List<TransDtl> getTransDtl() {
 		return transDtl;
 	}
 
-	public void setTransDtl(TransDtl transDtl) {
+	public void setTransDtl(List<TransDtl> transDtl) {
 		this.transDtl = transDtl;
 	}
 
@@ -140,6 +157,10 @@ public class TransHdr {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public OrderType getOrderType() {
+		return OrderType.getByGroupId(transGroupId.substring(0,5));
 	}
 	
 	

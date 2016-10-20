@@ -1,0 +1,32 @@
+package cat.prv.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import cat.prv.om.dao.TransHdrDao;
+import cat.prv.om.entity.TransHdr;
+
+@TestPropertySource(properties = { "spring.profiles.active=dev","jboss.server.log.dir=D:\\Development\\Application Server\\wildfly-10.1.0.Final\\standalone\\log"})
+@ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/ApplicationContext.xml",
+		"file:src/main/webapp/WEB-INF/spring-servlet.xml",})
+@Profile("dev")
+@RunWith(SpringJUnit4ClassRunner.class)
+public class ApplicationContextTest {
+
+	@Autowired
+	TransHdrDao transHdrDao;
+	
+	
+	@Test
+    public void test() {
+        TransHdr transHdr = transHdrDao.getTransHdr("U1610190000018865313");
+       assertEquals(transHdr.getTransId(), "U1610190000018865313");
+    }
+}

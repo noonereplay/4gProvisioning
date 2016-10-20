@@ -1,6 +1,6 @@
 <html>
+<title>PROVISIONING GATEWAY</title>
 <body>
-<h2>Hello World!</h2>
 <div>${message}</div>
 </body>
 </html>

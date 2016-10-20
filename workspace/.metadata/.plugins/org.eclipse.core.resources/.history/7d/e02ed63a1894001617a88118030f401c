@@ -1,0 +1,24 @@
+package cat.prv.om.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="TBL_SERVICES_HISTORY",schema="OMADM")
+public class TblServicesHistory extends TblServices{
+	
+	@Id
+	@Column(name="HISTORY_ID")	
+	private String historyId;
+	
+	@Column(name="HISTORY_REASON")
+	private String historyReason;
+	
+	@Column(name="SERVICES_ID")
+	private String servicesId;
+	
+	@Column(name="ORDER_ID_OLD")
+	private String orderIdOld;
+}

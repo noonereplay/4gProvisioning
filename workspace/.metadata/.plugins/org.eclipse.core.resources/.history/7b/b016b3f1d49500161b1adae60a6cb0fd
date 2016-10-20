@@ -1,0 +1,11 @@
+package cat.prv.test;
+
+import org.springframework.context.annotation.Profile;
+import org.springframework.test.context.ContextConfiguration;
+
+@ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/ApplicationContext.xml",
+		"file:src/main/webapp/WEB-INF/spring-servlet.xml",})
+@Profile("dev")
+public class ApplicationContextTest {
+
+}

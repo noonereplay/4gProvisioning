@@ -1,20 +1,38 @@
 package cat.prv.om.entity;
 
+import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="TBL_SERVICES",schema="OMADM")
-public class TblServices {
+@NamedQueries({
+    @NamedQuery(name="TblServices.findByMsisdn",
+                query="SELECT s FROM TblServices s where s.msisdn = :msisdn ")
+}) 
+public class TblServices implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6695548299965197221L;
 
 	@Id
 	@Column(name="SERVICES_ID")
-	private String servicesId;
+	private Integer servicesId;
 	
 	@Column(name="ACCOUNTS_ID")
-	private String accountsId;
+	private Integer accountsId;
 	
 	@Column(name="ORDER_ID")
 	private String orderId;
@@ -40,28 +58,34 @@ public class TblServices {
 	@Column(name="SERVICE_EXTERNALID_02")
 	private String imsi;
 	
-	@Column(name="SERVICE_EXTERNALID_TYP_01_RT")
-	private String rtServiceType;
+	@Column(name="SERVICE_EXTERNALID_TYPE_01_RT")
+	private Integer rtServiceType;
 	
 	@Column(name="RATING_STATE")
 	private Integer ratingState;
 	
 	@Column(name="STATUS")
 	private String status;
+	
+	@OneToMany(mappedBy="servicesId",targetEntity=TblRtOffers.class,fetch=FetchType.EAGER)
+	private List<TblRtOffers> tblRtOffersList;
 
-	public String getServicesId() {
+	@OneToMany(mappedBy="servicesId",targetEntity=TblRtOffersDel.class,fetch=FetchType.EAGER)
+	private List<TblRtOffersDel> tblRtOffersDelList;
+	
+	public Integer getServicesId() {
 		return servicesId;
 	}
 
-	public void setServicesId(String servicesId) {
+	public void setServicesId(Integer servicesId) {
 		this.servicesId = servicesId;
 	}
 
-	public String getAccountsId() {
+	public Integer getAccountsId() {
 		return accountsId;
 	}
 
-	public void setAccountsId(String accountsId) {
+	public void setAccountsId(Integer accountsId) {
 		this.accountsId = accountsId;
 	}
 
@@ -129,11 +153,11 @@ public class TblServices {
 		this.imsi = imsi;
 	}
 
-	public String getRtServiceType() {
+	public Integer getRtServiceType() {
 		return rtServiceType;
 	}
 
-	public void setRtServiceType(String rtServiceType) {
+	public void setRtServiceType(Integer rtServiceType) {
 		this.rtServiceType = rtServiceType;
 	}
 
@@ -151,6 +175,32 @@ public class TblServices {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	
+	public List<TblRtOffers> getTblRtOffersList() {
+		return tblRtOffersList;
+	}
+
+	public void setTblRtOffersList(List<TblRtOffers> tblRtOffersList) {
+		this.tblRtOffersList = tblRtOffersList;
+	}
+
+	public List<TblRtOffersDel> getTblRtOffersDelList() {
+		return tblRtOffersDelList;
+	}
+
+	public void setTblRtOffersDelList(List<TblRtOffersDel> tblRtOffersDelList) {
+		this.tblRtOffersDelList = tblRtOffersDelList;
+	}
+
+	@Override
+	public String toString() {
+		return "TblServices [servicesId=" + servicesId + ", accountsId=" + accountsId + ", orderId=" + orderId
+				+ ", serviceType=" + serviceType + ", rtAccountInternald=" + rtAccountInternald
+				+ ", rtServiceInternalId=" + rtServiceInternalId + ", statusReasonId=" + statusReasonId + ", msisdn="
+				+ msisdn + ", iccid=" + iccid + ", imsi=" + imsi + ", rtServiceType=" + rtServiceType + ", ratingState="
+				+ ratingState + ", status=" + status + "]";
 	}
 	
 }

@@ -1,0 +1,16 @@
+package cat.prv.util;
+
+public enum OrderType {
+
+	NEW_POSTPAID("OM101"), ;
+	
+	private String transGroupId;
+	
+	public OrderType(String transGroupId){
+		this.transGroupId = transGroupId;
+	}
+	
+	public getTransGroupId(){
+		return this.transGroupId;
+	}
+}

@@ -12,7 +12,7 @@ public class WebController {
 	public ModelAndView index() {
  
 		String message = "<br><div style='text-align:center;'>"
-				+ "Welcome to Provisioning GateWay</div><br><br>";
+				+ "Welcome to Provisioning Gateway</div><br><br>";
 		return new ModelAndView("index", "message", message);
 	}
 }
