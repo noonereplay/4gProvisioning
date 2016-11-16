@@ -9,8 +9,8 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
-		<!-- <property name="url"
-			value="jdbc:oracle:thin:@10.100.135.39:1921:OMDBDEV" /> -->
+<!-- 		<property name="url" -->
+<!-- 			value="jdbc:oracle:thin:@10.100.135.39:1921:OMDBDEV" />  -->
 		<property name="url"
 			value="jdbc:oracle:thin:@10.100.134.82:2021:OMPRD" />	
 			

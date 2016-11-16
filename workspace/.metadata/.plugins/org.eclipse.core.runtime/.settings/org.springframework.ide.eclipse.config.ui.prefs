@@ -1,3 +1,6 @@
+//com.springsource.config.ui.prefs.activePageIndex\:/ConverterApp/src/main/resources/spring/applicationContext.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/ConverterApp/src/main/resources/spring/rabbitMq.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/ConverterApp/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/resources/META-INF/spring/applicationContext.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/resources/META-INF/spring/infrastructure.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/webapp/WEB-INF/ApplicationDispatch.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
@@ -9,6 +12,8 @@
 //com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/webapp/WEB-INF/spring/datasource-dev.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/webapp/WEB-INF/spring/datasource-prd.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/webapp/WEB-INF/spring/datasource-test.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/webapp/WEB-INF/spring/hlrClient.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/webapp/WEB-INF/spring/rabbit.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/webapp/WEB-INF/springDispatch-servlet.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/webapp/WEB-INF/springweb-servlet.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 eclipse.preferences.version=1

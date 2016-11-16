@@ -32,7 +32,7 @@
 		<appender-ref ref="FILE" />
 	</logger>
 	
-	<logger name="org.hibernate" level="DEBUG"	additivity="false">
+	<logger name="org.hibernate" level="debug"	additivity="false">
 		<appender-ref ref="FILE" />
 	</logger>
 	

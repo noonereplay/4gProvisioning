@@ -9,6 +9,20 @@
 		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>META-INF/config.${spring.profiles.active}.properties</value>
+            </list>
+        </property>
+    </bean>
+
+	<context:annotation-config/>
+	<context:property-placeholder/>
+	<context:component-scan base-package="cat.prv.services,cat.prv.om.dao" />
+	
+	
     <!-- This produces a container-managed EntityManagerFactory; 
          rather than application-managed EntityManagerFactory as in case of LocalEntityManagerFactoryBean-->
     <bean id="entityManagerFactoryBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -38,8 +52,10 @@
     
    <!-- responsible for registering the necessary Spring components that power annotation-driven transaction management; 
         such as when @Transactional methods are invoked -->
-   <tx:annotation-driven />
+   <tx:annotation-driven transaction-manager="transactionManager"  />
+   
    
    <import resource="datasource-${spring.profiles.active}.xml"/>
-   
+   <import resource="rabbit.xml"/>
+    <import resource="hlrClient.xml"/>
 </beans>

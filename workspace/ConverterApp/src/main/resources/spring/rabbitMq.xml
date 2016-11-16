@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:orcl="http://www.springframework.org/schema/data/orcl"
+	xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-4.3.xsd
+		http://www.springframework.org/schema/data/orcl http://www.springframework.org/schema/data/orcl/spring-data-orcl-1.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit-1.6.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<!-- Sets up the JMS ConnectionFactory, in this case backed by Oracle AQ -->
+	<bean id="oracleNativeJdbcExtractor" 
+	class="org.springframework.jdbc.support.nativejdbc.OracleJdbc4NativeJdbcExtractor"/>
+	
+	
+	<orcl:aq-jms-connection-factory id="connectionFactory"  use-local-data-source-transaction="true"
+	data-source="oracleDataSource" native-jdbc-extractor="oracleNativeJdbcExtractor"  connection-factory-type="QUEUE_CONNECTION" 
+	/>
+	
+	<jms:listener-container connection-factory="connectionFactory"  acknowledge="transacted" destination-type="queue" container-type="default"  >
+        <jms:listener destination="${db.order.queue}" ref="transProducer" method="onMessage"  />
+    </jms:listener-container>
+    
+    <rabbit:connection-factory id="rabbitFactory" 
+	addresses="${rabbit.url}" username="${rabbit.username}" password="${rabbit.password}"
+	virtual-host="${rabbit.host}" channel-cache-size="10" />
+	
+	<rabbit:template id="orderAmqpTemplate" connection-factory="rabbitFactory" 
+	message-converter="jsonMessageConverter" 
+	exchange="${rabbit.ex.order}"/>
+	
+	
+	<rabbit:template id="newAmqpTemplate" connection-factory="rabbitFactory" 
+	message-converter="jsonMessageConverter" 
+	exchange="${rabbit.ex.new}"/>
+	
+	<rabbit:template id="susAmqpTemplate" connection-factory="rabbitFactory" 
+	message-converter="jsonMessageConverter" 
+	exchange="${rabbit.ex.sus}"/>
+	
+	<rabbit:template id="recAmqpTemplate" connection-factory="rabbitFactory" 
+	message-converter="jsonMessageConverter" 
+	exchange="${rabbit.ex.rec}"/>
+	
+	<rabbit:template id="terAmqpTemplate" connection-factory="rabbitFactory" 
+	message-converter="jsonMessageConverter" 
+	exchange="${rabbit.ex.ter}"/>
+	
+	<rabbit:template id="addOfferAmqpTemplate" connection-factory="rabbitFactory" 
+	message-converter="jsonMessageConverter" 
+	exchange="${rabbit.ex.addso}"/>
+	
+	<rabbit:template id="delOfferAmqpTemplate" connection-factory="rabbitFactory" 
+	message-converter="jsonMessageConverter" 
+	exchange="${rabbit.ex.delso}"/>
+	
+	<rabbit:template id="chgOfferAmqpTemplate" connection-factory="rabbitFactory" 
+	message-converter="jsonMessageConverter" 
+	exchange="${rabbit.ex.chgso}"/>
+	
+	
+	<rabbit:template id="preToPostAmqpTemplate" connection-factory="rabbitFactory" 
+	message-converter="jsonMessageConverter" 
+	exchange="${rabbit.ex.pretopost}"/>
+	
+	<rabbit:template id="postToPreAmqpTemplate" connection-factory="rabbitFactory" 
+	message-converter="jsonMessageConverter" 
+	exchange="${rabbit.ex.posttopre}"/>
+	
+	<rabbit:template id="actOfferAmqpTemplate" connection-factory="rabbitFactory" 
+	message-converter="jsonMessageConverter" 
+	exchange="${rabbit.ex.actso}"/>
+
+	<bean id="rabbitTxManager"
+      class="org.springframework.amqp.rabbit.transaction.RabbitTransactionManager">
+	    <property name="connectionFactory" ref="rabbitFactory"/>
+	</bean>
+	
+	<bean id="jsonMessageConverter" class="org.springframework.amqp.support.converter.Jackson2JsonMessageConverter" />
+	
+	<bean id="orderQueueListener" class="cat.prv.listener.OrderQueueListener" >
+		<property name="transService" ref="transService" />
+		<property name="jsonConvertor" ref="jsonMessageConverter"></property>
+		<property name="newAmqpTemplate" ref="newAmqpTemplate"></property>
+		<property name="suspendAmqpTemplate" ref="susAmqpTemplate"></property>
+		<property name="reconnectAmqpTemplate" ref="recAmqpTemplate"></property>
+		<property name="terminateAmqpTemplate" ref="terAmqpTemplate"></property>
+		<property name="addOfferAmqpTemplate" ref="addOfferAmqpTemplate"></property>
+		<property name="delOfferTemplate" ref="delOfferAmqpTemplate"></property>
+		<property name="chgOfferAmqpTemplate" ref="chgOfferAmqpTemplate"></property>
+		<property name="preToPostAmqpTemplate" ref="preToPostAmqpTemplate"></property>
+		<property name="postToPreAmqpTemplate" ref="postToPreAmqpTemplate"></property>
+		<property name="actSoAmqpTemplate" ref="actOfferAmqpTemplate"></property>
+	</bean>
+	
+	<rabbit:listener-container connection-factory="rabbitFactory" acknowledge="auto" 
+	requeue-rejected="true" 
+	 transaction-manager="rabbitTxManager" prefetch="1" concurrency="4" >
+		<rabbit:listener ref="orderQueueListener"  queue-names="${rabbit.queue.order}"  />
+	</rabbit:listener-container>
+
+    
+    
+    <bean id="transProducer" class="cat.prv.listener.TransProducer">
+    	<property name="transService" ref="transService"></property>
+    	<property name="amqpTemplate" ref="orderAmqpTemplate"></property>
+    </bean>
+
+</beans>

@@ -13,6 +13,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 import org.hibernate.annotations.Type;
 import org.hibernate.type.TextType;
 
@@ -64,12 +66,20 @@ public class TblRtOffersDel implements Serializable{
 	@Column(name="REASON")
 	private String reason;
 	
-	@ManyToOne(optional=false)
-	@JoinColumn(name="SERVICES_ID",referencedColumnName="SERVICES_ID")
-	private TblServices services;
+	@ManyToOne(optional=true)
+	@JoinColumn(name="SERVICES_ID",referencedColumnName="SERVICES_ID",updatable=false,insertable=false,nullable=true)
+	@NotFound(action=NotFoundAction.IGNORE)
+	private TblServices tblServices;
 	
-	@ManyToOne(optional=false)
-	@JoinColumn(name="OFFER_ID",referencedColumnName="OFFER_ID",updatable=false,insertable=false)
+	@ManyToOne(optional=true)
+	@JoinColumn(name="SERVICES_ID",referencedColumnName="SERVICES_ID",updatable=false,insertable=false,nullable=true)
+	@NotFound(action=NotFoundAction.IGNORE)
+	private TblServicesHistory tblServicesHistory;
+	
+	
+	@ManyToOne(optional=true)
+	@JoinColumn(name="OFFER_ID",referencedColumnName="OFFER_ID",updatable=false,insertable=false,nullable=true)
+	@NotFound(action=NotFoundAction.IGNORE)
 	private CfgRtSoExt cfgRtSoExt;
 
 	public Integer getRtOfferId() {
@@ -168,22 +178,37 @@ public class TblRtOffersDel implements Serializable{
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
-
-	public TblServices getServices() {
-		return services;
-	}
-
-	public void setServices(TblServices services) {
-		this.services = services;
-	}
-
 	
+	public TblServices getTblServices() {
+		return tblServices;
+	}
+
+	public void setTblServices(TblServices tblServices) {
+		this.tblServices = tblServices;
+	}
+
+	public TblServicesHistory getTblServicesHistory() {
+		return tblServicesHistory;
+	}
+
+	public void setTblServicesHistory(TblServicesHistory tblServicesHistory) {
+		this.tblServicesHistory = tblServicesHistory;
+	}
+
+	public CfgRtSoExt getCfgRtSoExt() {
+		return cfgRtSoExt;
+	}
+
+	public void setCfgRtSoExt(CfgRtSoExt cfgRtSoExt) {
+		this.cfgRtSoExt = cfgRtSoExt;
+	}
+
 	@Override
 	public String toString() {
 		return "TblRtOffersDel [rtOfferId=" + rtOfferId + ", servicesId=" + servicesId + ", orderId=" + orderId
 				+ ", offerType=" + offerType + ", offerId=" + offerId + ", dateActive=" + dateActive + ", dateInactive="
 				+ dateInactive + ", connnectReason=" + connnectReason + ", soLevel=" + soLevel + ", status=" + status
-				+ ", reason=" + reason + ", services=" + services + "]";
+				+ ", reason=" + reason + ", tblServices=" + tblServices + "]";
 	}
 
 

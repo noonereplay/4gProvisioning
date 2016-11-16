@@ -10,7 +10,7 @@
 	
  
 	<mvc:annotation-driven />
-	<context:component-scan base-package="cat.prv.web.controllers,cat.prv.om.dao" />
+	<context:component-scan base-package="cat.prv.web.controllers" />
 	
 	
 	<mvc:resources location="/resources/" mapping="/resources/**" >

@@ -3,125 +3,136 @@
  <depends-on-projects/>
  <used-by-projects/>
  <paths>
-  <path value="C:/Users/noone/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar"/>
   <path value="C:/Users/noone/.m2/repository/com/oracle/ojdbc6/11.2.0.4/ojdbc6-11.2.0.4.jar"/>
   <path value="C:/Users/noone/.m2/repository/org/springframework/spring-jdbc/4.3.3.RELEASE/spring-jdbc-4.3.3.RELEASE.jar"/>
   <path value="C:/Users/noone/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.21/log4j-over-slf4j-1.7.21.jar"/>
   <path value="C:/Users/noone/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar"/>
   <path value="C:/Users/noone/.m2/repository/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar"/>
-  <path value="C:/Users/noone/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar"/>
   <path value="C:/Users/noone/.m2/repository/javax/enterprise/cdi-api/1.1/cdi-api-1.1.jar"/>
   <path value="C:/Users/noone/.m2/repository/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar"/>
   <path value="C:/Users/noone/.m2/repository/org/logback-extensions/logback-ext-spring/0.1.4/logback-ext-spring-0.1.4.jar"/>
+  <path value="C:/Users/noone/.m2/repository/org/hibernate/common/hibernate-commons-annotations/5.0.1.Final/hibernate-commons-annotations-5.0.1.Final.jar"/>
+  <path value="C:/Users/noone/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar"/>
+  <path value="C:/Users/noone/.m2/repository/org/springframework/spring-tx/4.3.3.RELEASE/spring-tx-4.3.3.RELEASE.jar"/>
+  <path value="C:/Users/noone/.m2/repository/org/springframework/spring-test/4.3.3.RELEASE/spring-test-4.3.3.RELEASE.jar"/>
+  <path value="C:/Users/noone/.m2/repository/org/apache/commons/commons-pool2/2.3/commons-pool2-2.3.jar"/>
+  <path value="C:/Users/noone/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.0.1.Final/jboss-transaction-api_1.2_spec-1.0.1.Final.jar"/>
+  <path value="C:/Users/noone/.m2/repository/org/hibernate/hibernate-core/5.2.3.Final/hibernate-core-5.2.3.Final.jar"/>
+  <path value="C:/Users/noone/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.5.1/jackson-databind-2.5.1.jar"/>
+  <path value="C:/Users/noone/.m2/repository/ch/qos/logback/logback-access/1.1.3/logback-access-1.1.3.jar"/>
+  <path value="C:/Users/noone/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar"/>
+  <path value="C:/Users/noone/.m2/repository/org/aspectj/aspectjweaver/1.8.9/aspectjweaver-1.8.9.jar"/>
+  <path value="C:/Users/noone/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar"/>
+  <path value="C:/Users/noone/.m2/repository/org/springframework/amqp/spring-rabbit/1.6.3.RELEASE/spring-rabbit-1.6.3.RELEASE.jar"/>
+  <path value="C:/Users/noone/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.5.1/jackson-core-2.5.1.jar"/>
+  <path value="C:/Users/noone/.m2/repository/org/springframework/spring-core/4.3.3.RELEASE/spring-core-4.3.3.RELEASE.jar"/>
+  <path value="C:/Users/noone/.m2/repository/org/jboss/logging/jboss-logging/3.3.0.Final/jboss-logging-3.3.0.Final.jar"/>
+  <path value="C:/Users/noone/.m2/repository/org/springframework/spring-orm/4.3.3.RELEASE/spring-orm-4.3.3.RELEASE.jar"/>
+  <path value="C:/Users/noone/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar"/>
+  <path value="C:/Users/noone/.m2/repository/org/springframework/spring-messaging/4.2.7.RELEASE/spring-messaging-4.2.7.RELEASE.jar"/>
+  <path value="C:/Users/noone/.m2/repository/org/apache/httpcomponents/httpcore/4.3.3/httpcore-4.3.3.jar"/>
+  <path value="C:/Users/noone/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar"/>
   <path value="C:/Users/noone/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar">
    <libraries>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-jstl-1.2.jar/meta-inf/c-1_0-rt.tld" project="ProvisioningGw"/>
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/c-1_0-rt.tld" project="ConverterApp"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-jstl-1.2.jar/meta-inf/c-1_0.tld" project="ProvisioningGw"/>
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/c-1_0.tld" project="ConverterApp"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-jstl-1.2.jar/meta-inf/c.tld" project="ProvisioningGw"/>
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/c.tld" project="ConverterApp"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-jstl-1.2.jar/meta-inf/fmt-1_0-rt.tld" project="ProvisioningGw"/>
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/fmt-1_0-rt.tld" project="ConverterApp"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-jstl-1.2.jar/meta-inf/fmt-1_0.tld" project="ProvisioningGw"/>
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/fmt-1_0.tld" project="ConverterApp"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-jstl-1.2.jar/meta-inf/fmt.tld" project="ProvisioningGw"/>
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/fmt.tld" project="ConverterApp"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-jstl-1.2.jar/meta-inf/fn.tld" project="ProvisioningGw"/>
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/fn.tld" project="ConverterApp"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-jstl-1.2.jar/meta-inf/permittedtaglibs.tld" project="ProvisioningGw"/>
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/permittedtaglibs.tld" project="ConverterApp"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-jstl-1.2.jar/meta-inf/scriptfree.tld" project="ProvisioningGw"/>
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/scriptfree.tld" project="ConverterApp"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-jstl-1.2.jar/meta-inf/sql-1_0-rt.tld" project="ProvisioningGw"/>
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/sql-1_0-rt.tld" project="ConverterApp"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-jstl-1.2.jar/meta-inf/sql-1_0.tld" project="ProvisioningGw"/>
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/sql-1_0.tld" project="ConverterApp"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-jstl-1.2.jar/meta-inf/sql.tld" project="ProvisioningGw"/>
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/sql.tld" project="ConverterApp"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-jstl-1.2.jar/meta-inf/x-1_0-rt.tld" project="ProvisioningGw"/>
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/x-1_0-rt.tld" project="ConverterApp"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-jstl-1.2.jar/meta-inf/x-1_0.tld" project="ProvisioningGw"/>
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/x-1_0.tld" project="ConverterApp"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-jstl-1.2.jar/meta-inf/x.tld" project="ProvisioningGw"/>
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/x.tld" project="ConverterApp"/>
     </library>
    </libraries>
   </path>
   <path value="C:/Users/noone/.m2/repository/junit/junit/4.12/junit-4.12.jar"/>
   <path value="C:/Users/noone/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+  <path value="C:/Users/noone/.m2/repository/org/apache/httpcomponents/httpclient/4.3.6/httpclient-4.3.6.jar"/>
   <path value="C:/Users/noone/.m2/repository/org/springframework/spring-aop/4.3.3.RELEASE/spring-aop-4.3.3.RELEASE.jar"/>
+  <path value="C:/Users/noone/.m2/repository/org/springframework/amqp/spring-amqp/1.6.3.RELEASE/spring-amqp-1.6.3.RELEASE.jar"/>
   <path value="C:/Users/noone/.m2/repository/com/fasterxml/classmate/1.3.0/classmate-1.3.0.jar"/>
-  <path value="C:/Users/noone/.m2/repository/org/hibernate/common/hibernate-commons-annotations/5.0.1.Final/hibernate-commons-annotations-5.0.1.Final.jar"/>
   <path value="C:/Users/noone/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar"/>
   <path value="C:/Users/noone/.m2/repository/org/springframework/spring-web/4.3.3.RELEASE/spring-web-4.3.3.RELEASE.jar"/>
   <path value="C:/Users/noone/.m2/repository/org/springframework/spring-context/4.3.3.RELEASE/spring-context-4.3.3.RELEASE.jar"/>
   <path value="C:/Users/noone/.m2/repository/org/apache/commons/commons-dbcp2/2.1/commons-dbcp2-2.1.jar"/>
-  <path value="C:/Users/noone/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar"/>
-  <path value="C:/Users/noone/.m2/repository/org/springframework/spring-tx/4.3.3.RELEASE/spring-tx-4.3.3.RELEASE.jar"/>
+  <path value="C:/Users/noone/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.5.0/jackson-annotations-2.5.0.jar"/>
+  <path value="C:/Users/noone/.m2/repository/org/springframework/retry/spring-retry/1.1.3.RELEASE/spring-retry-1.1.3.RELEASE.jar"/>
   <path value="C:/Users/noone/.m2/repository/javax/el/el-api/2.2/el-api-2.2.jar"/>
+  <path value="C:/Users/noone/.m2/repository/com/rabbitmq/amqp-client/3.6.3/amqp-client-3.6.3.jar"/>
   <path value="C:/Users/noone/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.21/jcl-over-slf4j-1.7.21.jar"/>
   <path value="C:/Users/noone/.m2/repository/ch/qos/logback/logback-core/1.1.3/logback-core-1.1.3.jar"/>
   <path value="C:/Users/noone/.m2/repository/org/springframework/spring-beans/4.3.3.RELEASE/spring-beans-4.3.3.RELEASE.jar"/>
-  <path value="C:/Users/noone/.m2/repository/org/springframework/spring-test/4.3.3.RELEASE/spring-test-4.3.3.RELEASE.jar"/>
-  <path value="C:/Users/noone/.m2/repository/org/apache/commons/commons-pool2/2.3/commons-pool2-2.3.jar"/>
-  <path value="C:/Users/noone/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.0.1.Final/jboss-transaction-api_1.2_spec-1.0.1.Final.jar"/>
   <path value="C:/Users/noone/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
-  <path value="C:/Users/noone/.m2/repository/org/hibernate/hibernate-core/5.2.3.Final/hibernate-core-5.2.3.Final.jar"/>
-  <path value="C:/Users/noone/.m2/repository/ch/qos/logback/logback-access/1.1.3/logback-access-1.1.3.jar"/>
-  <path value="C:/Users/noone/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar"/>
-  <path value="C:/Users/noone/.m2/repository/org/aspectj/aspectjweaver/1.8.9/aspectjweaver-1.8.9.jar"/>
   <path value="C:/Users/noone/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"/>
   <path value="C:/Users/noone/.m2/repository/commons-io/commons-io/2.5/commons-io-2.5.jar"/>
   <path value="C:/Users/noone/.m2/repository/commons-fileupload/commons-fileupload/1.3.2/commons-fileupload-1.3.2.jar"/>
-  <path value="C:/Users/noone/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar"/>
   <path value="C:/Users/noone/.m2/repository/org/jboss/spec/javax/interceptor/jboss-interceptors-api_1.1_spec/1.0.0.Beta1/jboss-interceptors-api_1.1_spec-1.0.0.Beta1.jar"/>
+  <path value="C:/Users/noone/.m2/repository/com/rabbitmq/http-client/1.0.0.RELEASE/http-client-1.0.0.RELEASE.jar"/>
   <path value="C:/Users/noone/.m2/repository/org/apache/geronimo/specs/geronimo-jta_1.1_spec/1.1.1/geronimo-jta_1.1_spec-1.1.1.jar"/>
   <path value="C:/Users/noone/.m2/repository/org/springframework/spring-webmvc/4.3.3.RELEASE/spring-webmvc-4.3.3.RELEASE.jar">
    <libraries>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-spring-webmvc-4.3.3.RELEASE.jar/meta-inf/spring-form.tld" project="ProvisioningGw"/>
+      path="FileSystems/lib-spring-webmvc-4.3.3.RELEASE.jar/meta-inf/spring-form.tld" project="ConverterApp"/>
     </library>
     <library class="tld">
      <id class="model-object"
-      path="FileSystems/lib-spring-webmvc-4.3.3.RELEASE.jar/meta-inf/spring.tld" project="ProvisioningGw"/>
+      path="FileSystems/lib-spring-webmvc-4.3.3.RELEASE.jar/meta-inf/spring.tld" project="ConverterApp"/>
     </library>
    </libraries>
   </path>
   <path value="C:/Users/noone/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar"/>
-  <path value="C:/Users/noone/.m2/repository/org/springframework/spring-core/4.3.3.RELEASE/spring-core-4.3.3.RELEASE.jar"/>
-  <path value="C:/Users/noone/.m2/repository/org/jboss/logging/jboss-logging/3.3.0.Final/jboss-logging-3.3.0.Final.jar"/>
-  <path value="C:/Users/noone/.m2/repository/org/springframework/spring-orm/4.3.3.RELEASE/spring-orm-4.3.3.RELEASE.jar"/>
   <path value="C:/Users/noone/.m2/repository/ch/qos/logback/logback-classic/1.1.3/logback-classic-1.1.3.jar"/>
   <path value="C:/Users/noone/.m2/repository/org/springframework/spring-expression/4.3.3.RELEASE/spring-expression-4.3.3.RELEASE.jar"/>
  </paths>
@@ -136,110 +147,152 @@
    <linked-el length="39" name="%0" offset="319" path="%1"/>
    <linked-el length="48" name="%0" offset="151" path="%3"/>
    <linked-el length="46" name="%0" offset="151" path="%2"/>
-   <linked-el length="20" name="%4" offset="1476" path="%5"/>
-   <linked-el length="46" name="%6" offset="151" path="%1"/>
-   <linked-el length="39" name="%6" offset="319" path="%2"/>
-   <linked-el length="41" name="%6" offset="321" path="%3"/>
-   <linked-el length="39" name="%6" offset="319" path="%1"/>
-   <linked-el length="48" name="%6" offset="151" path="%3"/>
-   <linked-el length="46" name="%6" offset="151" path="%2"/>
-   <linked-el length="47" name="%7" offset="642" path="%8"/>
-   <linked-el length="42" name="%7" offset="2587" path="%9"/>
-   <linked-el length="24" name="%10" offset="8555" path="%5"/>
-   <linked-el length="24" name="%11" offset="8604" path="%5"/>
-   <linked-el length="24" name="%11" offset="8555" path="%5"/>
-   <linked-el length="20" name="%12" offset="1476" path="%5"/>
-   <linked-el length="10" name="%13" offset="58" path="%14"/>
-   <linked-el length="17" name="%15" offset="6480" path="%5"/>
-   <linked-el length="17" name="%15" offset="5446" path="%5"/>
-   <linked-el length="17" name="%15" offset="7061" path="%5"/>
-   <linked-el length="17" name="%15" offset="7221" path="%5"/>
-   <linked-el length="17" name="%15" offset="5604" path="%5"/>
-   <linked-el length="17" name="%15" offset="6324" path="%5"/>
-   <linked-el length="17" name="%15" offset="6003" path="%5"/>
-   <linked-el length="17" name="%15" offset="3367" path="%5"/>
-   <linked-el length="17" name="%15" offset="5118" path="%5"/>
-   <linked-el length="17" name="%15" offset="6638" path="%5"/>
-   <linked-el length="17" name="%15" offset="5819" path="%5"/>
-   <linked-el length="24" name="%16" offset="8604" path="%5"/>
-   <linked-el length="24" name="%16" offset="8555" path="%5"/>
-   <linked-el length="47" name="%17" offset="642" path="%8"/>
-   <linked-el length="42" name="%17" offset="2587" path="%9"/>
-   <linked-el length="18" name="%18" offset="4354" path="%5"/>
-   <linked-el length="18" name="%18" offset="4197" path="%5"/>
-   <linked-el length="18" name="%18" offset="4039" path="%5"/>
-   <linked-el length="17" name="%19" offset="5446" path="%5"/>
-   <linked-el length="17" name="%19" offset="5604" path="%5"/>
-   <linked-el length="17" name="%19" offset="3367" path="%5"/>
-   <linked-el length="17" name="%19" offset="6638" path="%5"/>
-   <linked-el length="42" name="%19" offset="2587" path="%9"/>
-   <linked-el length="17" name="%19" offset="6480" path="%5"/>
-   <linked-el length="17" name="%19" offset="7061" path="%5"/>
-   <linked-el length="17" name="%19" offset="7221" path="%5"/>
-   <linked-el length="17" name="%19" offset="6324" path="%5"/>
-   <linked-el length="17" name="%19" offset="6003" path="%5"/>
-   <linked-el length="17" name="%19" offset="5118" path="%5"/>
-   <linked-el length="47" name="%19" offset="642" path="%8"/>
-   <linked-el length="17" name="%19" offset="5819" path="%5"/>
-   <linked-el length="20" name="%20" offset="3573" path="%5"/>
-   <linked-el length="20" name="%20" offset="3731" path="%5"/>
-   <linked-el length="20" name="%20" offset="3880" path="%5"/>
-   <linked-el length="20" name="%21" offset="3573" path="%5"/>
-   <linked-el length="20" name="%21" offset="3731" path="%5"/>
-   <linked-el length="20" name="%21" offset="3880" path="%5"/>
-   <linked-el length="24" name="%22" offset="8604" path="%5"/>
-   <linked-el length="46" name="%23" offset="151" path="%1"/>
-   <linked-el length="39" name="%23" offset="319" path="%2"/>
-   <linked-el length="41" name="%23" offset="321" path="%3"/>
-   <linked-el length="39" name="%23" offset="319" path="%1"/>
-   <linked-el length="48" name="%23" offset="151" path="%3"/>
-   <linked-el length="46" name="%23" offset="151" path="%2"/>
-   <linked-el length="46" name="%24" offset="151" path="%1"/>
-   <linked-el length="39" name="%24" offset="319" path="%2"/>
-   <linked-el length="41" name="%24" offset="321" path="%3"/>
-   <linked-el length="39" name="%24" offset="319" path="%1"/>
-   <linked-el length="48" name="%24" offset="151" path="%3"/>
-   <linked-el length="46" name="%24" offset="151" path="%2"/>
-   <linked-el length="20" name="%25" offset="3573" path="%5"/>
-   <linked-el length="20" name="%25" offset="3731" path="%5"/>
-   <linked-el length="20" name="%25" offset="3880" path="%5"/>
-   <linked-el length="18" name="%26" offset="4354" path="%5"/>
-   <linked-el length="18" name="%26" offset="4197" path="%5"/>
-   <linked-el length="18" name="%26" offset="4039" path="%5"/>
+   <linked-el length="42" name="%4" offset="3140" path="%5"/>
+   <linked-el length="52" name="%4" offset="1033" path="%5"/>
+   <linked-el length="47" name="%4" offset="642" path="%6"/>
+   <linked-el length="24" name="%7" offset="7130" path="%8"/>
+   <linked-el length="20" name="%9" offset="1540" path="%8"/>
+   <linked-el length="25" name="%10" offset="1393" path="%11"/>
+   <linked-el length="18" name="%12" offset="4418" path="%8"/>
+   <linked-el length="18" name="%12" offset="4261" path="%8"/>
+   <linked-el length="18" name="%12" offset="4103" path="%8"/>
+   <linked-el length="17" name="%13" offset="7329" path="%8"/>
+   <linked-el length="17" name="%13" offset="7489" path="%8"/>
+   <linked-el length="17" name="%13" offset="5510" path="%8"/>
+   <linked-el length="17" name="%13" offset="5668" path="%8"/>
+   <linked-el length="17" name="%13" offset="3431" path="%8"/>
+   <linked-el length="17" name="%13" offset="6702" path="%8"/>
+   <linked-el length="17" name="%13" offset="6544" path="%8"/>
+   <linked-el length="17" name="%13" offset="6388" path="%8"/>
+   <linked-el length="42" name="%13" offset="3140" path="%5"/>
+   <linked-el length="17" name="%13" offset="6067" path="%8"/>
+   <linked-el length="52" name="%13" offset="1033" path="%5"/>
+   <linked-el length="24" name="%13" offset="7130" path="%8"/>
+   <linked-el length="17" name="%13" offset="5182" path="%8"/>
+   <linked-el length="47" name="%13" offset="642" path="%6"/>
+   <linked-el length="17" name="%13" offset="5883" path="%8"/>
+   <linked-el length="20" name="%14" offset="3637" path="%8"/>
+   <linked-el length="20" name="%14" offset="3795" path="%8"/>
+   <linked-el length="20" name="%14" offset="3944" path="%8"/>
+   <linked-el length="46" name="%15" offset="151" path="%1"/>
+   <linked-el length="39" name="%15" offset="319" path="%2"/>
+   <linked-el length="41" name="%15" offset="321" path="%3"/>
+   <linked-el length="39" name="%15" offset="319" path="%1"/>
+   <linked-el length="48" name="%15" offset="151" path="%3"/>
+   <linked-el length="46" name="%15" offset="151" path="%2"/>
+   <linked-el length="22" name="%16" offset="1094" path="%11"/>
+   <linked-el length="25" name="%16" offset="1393" path="%11"/>
+   <linked-el length="21" name="%16" offset="988" path="%11"/>
+   <linked-el length="24" name="%16" offset="7130" path="%8"/>
+   <linked-el length="28" name="%16" offset="1053" path="%11"/>
+   <linked-el length="26" name="%16" offset="1018" path="%11"/>
+   <linked-el length="20" name="%17" offset="3637" path="%8"/>
+   <linked-el length="20" name="%17" offset="3795" path="%8"/>
+   <linked-el length="20" name="%17" offset="3944" path="%8"/>
+   <linked-el length="28" name="%18" offset="1053" path="%11"/>
+   <linked-el length="18" name="%19" offset="4418" path="%8"/>
+   <linked-el length="18" name="%19" offset="4261" path="%8"/>
+   <linked-el length="18" name="%19" offset="4103" path="%8"/>
+   <linked-el length="21" name="%20" offset="988" path="%11"/>
+   <linked-el length="46" name="%21" offset="151" path="%1"/>
+   <linked-el length="39" name="%21" offset="319" path="%2"/>
+   <linked-el length="41" name="%21" offset="321" path="%3"/>
+   <linked-el length="39" name="%21" offset="319" path="%1"/>
+   <linked-el length="48" name="%21" offset="151" path="%3"/>
+   <linked-el length="46" name="%21" offset="151" path="%2"/>
+   <linked-el length="20" name="%22" offset="1540" path="%8"/>
+   <linked-el length="26" name="%23" offset="1018" path="%11"/>
+   <linked-el length="24" name="%24" offset="8823" path="%8"/>
+   <linked-el length="24" name="%25" offset="8872" path="%8"/>
+   <linked-el length="24" name="%25" offset="8823" path="%8"/>
+   <linked-el length="22" name="%26" offset="1094" path="%11"/>
+   <linked-el length="21" name="%26" offset="988" path="%11"/>
+   <linked-el length="28" name="%26" offset="1053" path="%11"/>
+   <linked-el length="26" name="%26" offset="1018" path="%11"/>
+   <linked-el length="25" name="%27" offset="1393" path="%11"/>
+   <linked-el length="10" name="%28" offset="58" path="%29"/>
+   <linked-el length="17" name="%30" offset="7329" path="%8"/>
+   <linked-el length="17" name="%30" offset="7489" path="%8"/>
+   <linked-el length="17" name="%30" offset="6544" path="%8"/>
+   <linked-el length="17" name="%30" offset="5510" path="%8"/>
+   <linked-el length="17" name="%30" offset="5668" path="%8"/>
+   <linked-el length="17" name="%30" offset="6388" path="%8"/>
+   <linked-el length="17" name="%30" offset="6067" path="%8"/>
+   <linked-el length="17" name="%30" offset="3431" path="%8"/>
+   <linked-el length="17" name="%30" offset="5182" path="%8"/>
+   <linked-el length="17" name="%30" offset="6702" path="%8"/>
+   <linked-el length="17" name="%30" offset="5883" path="%8"/>
+   <linked-el length="24" name="%31" offset="8872" path="%8"/>
+   <linked-el length="24" name="%31" offset="8823" path="%8"/>
+   <linked-el length="42" name="%32" offset="3140" path="%5"/>
+   <linked-el length="52" name="%32" offset="1033" path="%5"/>
+   <linked-el length="47" name="%32" offset="642" path="%6"/>
+   <linked-el length="17" name="%33" offset="1277" path="%34"/>
+   <linked-el length="15" name="%33" offset="945" path="%35"/>
+   <linked-el length="20" name="%36" offset="3637" path="%8"/>
+   <linked-el length="20" name="%36" offset="3795" path="%8"/>
+   <linked-el length="20" name="%36" offset="3944" path="%8"/>
+   <linked-el length="24" name="%37" offset="8872" path="%8"/>
+   <linked-el length="22" name="%38" offset="1094" path="%11"/>
+   <linked-el length="46" name="%39" offset="151" path="%1"/>
+   <linked-el length="39" name="%39" offset="319" path="%2"/>
+   <linked-el length="41" name="%39" offset="321" path="%3"/>
+   <linked-el length="39" name="%39" offset="319" path="%1"/>
+   <linked-el length="48" name="%39" offset="151" path="%3"/>
+   <linked-el length="46" name="%39" offset="151" path="%2"/>
+   <linked-el length="17" name="%40" offset="1277" path="%34"/>
+   <linked-el length="15" name="%40" offset="945" path="%35"/>
   </el>
  </validation>
  <aliases>
-  <alias path="/ProvisioningGw/pom.xml" value="%5"/>
-  <alias path="jboss.server" value="%6"/>
-  <alias path="spring.profiles" value="%7"/>
+  <alias path="jboss.server" value="%0"/>
+  <alias path="/ProvisioningGw/pom.xml" value="%8"/>
+  <alias path="spring.profiles" value="%4"/>
+  <alias
+   path="/ProvisioningGw/src/main/webapp/WEB-INF/spring/rabbit.xml" value="%11"/>
+  <alias path="rabbit.version" value="%7"/>
   <alias
    path="/ProvisioningGw/src/main/resources/logback/logback-dev.xml" value="%3"/>
-  <alias path="hibernate" value="%12"/>
-  <alias path="logback" value="%18"/>
-  <alias path="spring" value="%19"/>
-  <alias path="jcl" value="%21"/>
-  <alias path="jboss" value="%23"/>
-  <alias path="jcl.slf4j" value="%25"/>
+  <alias path="hibernate" value="%9"/>
+  <alias
+   path="/ProvisioningGw/src/main/webapp/WEB-INF/spring/hlrClient.xml" value="%35"/>
+  <alias path="rabbit.order.queue" value="%10"/>
+  <alias path="logback" value="%12"/>
+  <alias path="spring" value="%13"/>
+  <alias
+   path="/ProvisioningGw/src/main/java/cat/prv/services/Provisioning4GService.java" value="%34"/>
+  <alias path="jcl" value="%14"/>
+  <alias path="jboss" value="%15"/>
+  <alias path="rabbit" value="%16"/>
+  <alias path="jcl.slf4j" value="%17"/>
   <alias
    path="/ProvisioningGw/src/main/resources/logback/logback-prd.xml" value="%2"/>
   <alias
    path="/ProvisioningGw/src/main/resources/logback/logback-test.xml" value="%1"/>
-  <alias path="logback.version" value="%26"/>
-  <alias path="jboss.server.log.dir" value="%0"/>
-  <alias path="hibernate.version" value="%4"/>
-  <alias path="/ProvisioningGw/src/main/resources/logback.xml" value="%8"/>
+  <alias path="rabbit.task.password" value="%18"/>
+  <alias path="logback.version" value="%19"/>
+  <alias path="rabbit.task.url" value="%20"/>
+  <alias path="/ProvisioningGw/src/main/resources/logback.xml" value="%6"/>
+  <alias path="jboss.server.log.dir" value="%21"/>
+  <alias path="hibernate.version" value="%22"/>
   <alias
-   path="/ProvisioningGw/src/main/webapp/WEB-INF/spring/ApplicationContext.xml" value="%9"/>
-  <alias path="maven.compiler.source" value="%10"/>
-  <alias path="maven" value="%11"/>
-  <alias path="message" value="%13"/>
-  <alias path="version" value="%15"/>
-  <alias path="maven.compiler" value="%16"/>
-  <alias path="spring.profiles.active" value="%17"/>
-  <alias path="jcl.slf4j.version" value="%20"/>
-  <alias path="maven.compiler.target" value="%22"/>
-  <alias path="jboss.server.log" value="%24"/>
-  <alias path="/ProvisioningGw/src/main/webapp/WEB-INF/pages/index.jsp" value="%14"/>
+   path="/ProvisioningGw/src/main/webapp/WEB-INF/spring/ApplicationContext.xml" value="%5"/>
+  <alias path="rabbit.task.username" value="%23"/>
+  <alias path="maven.compiler.source" value="%24"/>
+  <alias path="maven" value="%25"/>
+  <alias path="rabbit.task" value="%26"/>
+  <alias path="rabbit.order" value="%27"/>
+  <alias path="message" value="%28"/>
+  <alias path="version" value="%30"/>
+  <alias path="maven.compiler" value="%31"/>
+  <alias path="spring.profiles.active" value="%32"/>
+  <alias path="hlr" value="%33"/>
+  <alias path="jcl.slf4j.version" value="%36"/>
+  <alias path="maven.compiler.target" value="%37"/>
+  <alias path="rabbit.task.host" value="%38"/>
+  <alias path="jboss.server.log" value="%39"/>
+  <alias path="hlr.endpoint" value="%40"/>
+  <alias path="/ProvisioningGw/src/main/webapp/WEB-INF/pages/index.jsp" value="%29"/>
  </aliases>
  <includes/>
  <uris/>

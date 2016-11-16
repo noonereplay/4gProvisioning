@@ -1,0 +1,84 @@
+package cat.clm.listener;
+
+import java.util.HashMap;
+
+import javax.annotation.Resource;
+
+import org.slf4j.LoggerFactory;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessageListener;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.listener.exception.ListenerExecutionFailedException;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import cat.clm.dto.Sms;
+import cat.clm.dto.SmsDetail;
+import cat.clm.service.SmsService;
+import cat.clm.smsc.api.ResultRec;
+import cat.prv.conv.services.TransService;
+
+
+
+
+public class OrderQueueListener implements MessageListener, BeanNameAware{
+
+	private final static org.slf4j.Logger logger = LoggerFactory.getLogger(OrderQueueListener.class);
+	
+	private String beanName;
+	
+	@Autowired
+	@Qualifier("jsonMessageConverter")
+	private Jackson2JsonMessageConverter jsonConvertor;
+	
+
+	private TransService transService;
+	
+	private RabbitTemplate amqpTemplate;
+	
+
+	public Jackson2JsonMessageConverter getJsonConvertor() {
+		return jsonConvertor;
+	}
+	
+	public void setJsonConvertor(Jackson2JsonMessageConverter jsonConvertor) {
+		this.jsonConvertor = jsonConvertor;
+	}
+		
+	public void setTransService(TransService transService) {
+		this.transService = transService;
+	}
+
+	public void setAmqpTemplate(RabbitTemplate amqpTemplate) {
+		this.amqpTemplate = amqpTemplate;
+	}
+
+	@Override
+	public void onMessage(Message msg) {
+		
+		try{
+			HashMap<String, String> map = (HashMap<String, String>)jsonConvertor.fromMessage(msg);
+			String transId = map.get("transId");
+			
+		}catch(Exception e){
+			logger.error("Error updateSmsReponse SMSC DB : {} ",e);
+		}
+		//System.out.println("result : "+sms.toString());
+		logger.info("{} onMessage Body {} ", beanName, new String(msg.getBody()) );
+		
+		if(!result.isSuccess() && sms.getRetryNum() > 0){
+			//msg.getMessageProperties().getRedelivered();
+			logger.error("Error Result [{}] : {} ",sms,result.getThrowable());
+			//throw new ListenerExecutionFailedException("Error occur while sending message to SMSC",result.getThrowable());
+			amqpTemplate.convertAndSend(sms);
+		}
+	}
+	
+	@Override
+	public void setBeanName(String beanName) {
+		this.beanName = beanName;		
+	}
+
+}

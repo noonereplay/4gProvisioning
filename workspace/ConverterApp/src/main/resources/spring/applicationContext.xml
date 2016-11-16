@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- Uncomment and add your base-package here: <context:component-scan base-package="org.springframework.samples.service"/> -->
+
+
+	<!--Thread Scope-->
+    <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="thread">
+                    <bean class="org.springframework.context.support.SimpleThreadScope"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:spring/config.${spring.profiles.active}.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<context:property-placeholder/>
+    <context:component-scan base-package="cat.clm" />
+    
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:${jndi.prefix}jdbc/om_prov_db"/>
+    </bean>
+    
+    <!-- 
+    <bean id="qDataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url"	value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+	 -->
+	 
+	<bean id="oracleDataSource" class="oracle.jdbc.pool.OracleDataSource">
+    <property name="URL" value="${db.url}" />
+    <property name="user" value="${db.username}" />
+    <property name="password" value="${db.password}" />
+    <property name="implicitCachingEnabled" value="true" />
+    <property name="connectionCachingEnabled" value="true" />
+    <property name="connectionCacheProperties">
+      <props>
+        <prop key="MinLimit">20</prop>
+        <prop key="MaxLimit">1</prop>
+        <prop key="InactivityTimeout">3000</prop>
+        <prop key="ValidateConnection">true</prop>
+      </props>
+    </property>
+    <property name="connectionProperties">
+      <props>
+        <prop key="oracle.jdbc.ReadTimeout">3000</prop>
+      </props>
+    </property>
+  </bean>
+	
+	
+
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan">
+			<list>
+				<value>cat.prv.om.entity</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</prop>
+				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate5.SpringSessionContext</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.auto_close_session">true</prop>
+				<prop key="hibernate.connection.release_mode">after_transaction</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.temp.use_jdbc_metadata_defaults">false</prop>
+				<prop key="hibernate.default_schema">${db.schema}</prop>
+			</props>
+		</property>
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+
+	<bean id="transHdrDao" class="cat.prv.om.dao.TransHdrDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	
+	<bean id="transService" class="cat.prv.conv.services.TransService">
+		<property name="transHdrDao" ref="transHdrDao" />
+	</bean>
+	
+
+	<bean id="clientHttpRequestFactory"
+		class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory">
+	</bean>
+
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+		<property name="requestFactory" ref="clientHttpRequestFactory"></property>
+		<property name="messageConverters">
+        <list>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                        <property name="objectMapper" ref="objectMapper"/>
+            </bean>
+        </list>
+    </property>
+	</bean>
+	
+	
+	
+	
+	<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper" />
+
+
+	<import resource="rabbitMq.xml"/>
+</beans>

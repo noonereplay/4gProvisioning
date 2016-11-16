@@ -15,6 +15,8 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import cat.prv.hlr.dto.HlrRequest;
+import cat.prv.hlr.dto.HlrResponse;
 import cat.prv.om.dao.TblRtOffersDao;
 import cat.prv.om.dao.TblRtOffersDelDao;
 import cat.prv.om.dao.TblServicesDao;
@@ -27,6 +29,9 @@ import cat.prv.om.entity.TblServices;
 import cat.prv.om.entity.TblServicesHistory;
 import cat.prv.om.entity.TransDtl;
 import cat.prv.om.entity.TransHdr;
+import cat.prv.services.OrderService;
+import cat.prv.services.Provisioning4GService;
+import cat.prv.services.TransService;
 
 
 @TestPropertySource(properties = { "spring.profiles.active=dev","jboss.server.log.dir=D:\\Development\\Application Server\\wildfly-10.1.0.Final\\standalone\\log"})
@@ -55,10 +60,24 @@ public class ApplicationContextTest {
 	@Autowired
 	TblServicesHistoryDao tblServicesHistoryDao;
 	
-	@Test
+	@Autowired
+	OrderService orderService;
+	
+	@Autowired
+	Provisioning4GService provisioningService;
+	
+	@Autowired
+	TransService transService;
+	
+	//@Test
     public void testTrans() {
 		
+		/*List<String> testList = null;
+		if(!testList.stream().anyMatch(a -> a.equals("String"))){
+			System.out.println("Nullable");
+		}*/
 		
+
 		testTransHdr("U1610190000018865313");
 		testTransHdr("U1610200000018902794");
 		testTransDtl("U1610190000018865313","D1610190000041466173");
@@ -67,6 +86,8 @@ public class ApplicationContextTest {
         testTblServicesHistory();
         testTblRtOffers();
         testTblRtOffersDel();
+        
+        
     }
 	
 	
@@ -141,4 +162,58 @@ public class ApplicationContextTest {
 		System.out.println();
 	} 
 	
+	//@Test
+	public void testOrderService(){
+		testAddSo2();
+		testDelSo2();
+	}
+	
+	public void testAddSo2(){
+		System.out.println("Test Add SO2 Service Started");
+		try {
+			assertFalse(orderService.makeProvisioning4G("U1610250000019086648"));
+			assertTrue(orderService.makeProvisioning4G("U1610220000018979434"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("Test Add SO2 Service Completed");
+	}
+
+	public void testDelSo2(){
+		System.out.println("Test Delete SO2 Service Started");
+		try {
+			assertFalse(orderService.makeProvisioning4G("T1610220000018993441"));
+			assertFalse(orderService.makeProvisioning4G("U1610220000019001626"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("Test Delete SO2 Service Completed");
+	}
+	
+	@Test
+	public void testProvisioning(){
+		
+		System.out.println();
+		System.out.println("Test Provisioning Service Started");
+		HlrRequest request = new HlrRequest();
+		request.setAction("FirstActivate");
+		request.setImsi("520001910248562");
+		request.setMsisdn("66882753351");
+		request.setOmtransId("T1609210000000044006");
+		request.setSubType("1");
+		
+		System.out.println("Request : "+request);
+
+		try {
+			HlrResponse response = provisioningService.callHlrRest(request);
+			
+			transService.saveHlrTrans(request, response);
+			System.out.println("Response : "+response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		System.out.println("Test Provisioning Service Completed");
+	}
 }

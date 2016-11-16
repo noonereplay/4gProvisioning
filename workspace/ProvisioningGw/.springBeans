@@ -10,6 +10,8 @@
 		<config>src/main/webapp/WEB-INF/spring/ApplicationContext.xml</config>
 		<config>src/main/webapp/WEB-INF/spring-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/datasource-dev.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/rabbit.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/hlrClient.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

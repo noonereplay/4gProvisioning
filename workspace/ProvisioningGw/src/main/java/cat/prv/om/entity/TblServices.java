@@ -2,7 +2,9 @@ package cat.prv.om.entity;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +15,9 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 @Entity
 @Table(name="TBL_SERVICES",schema="OMADM")
@@ -67,11 +72,13 @@ public class TblServices implements Serializable{
 	@Column(name="STATUS")
 	private String status;
 	
-	@OneToMany(mappedBy="servicesId",targetEntity=TblRtOffers.class,fetch=FetchType.EAGER)
-	private List<TblRtOffers> tblRtOffersList;
+	@NotFound(action=NotFoundAction.IGNORE)
+	@OneToMany(mappedBy="tblServices",targetEntity=TblRtOffers.class,fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	private Set<TblRtOffers> tblRtOffersList;
 
-	@OneToMany(mappedBy="servicesId",targetEntity=TblRtOffersDel.class,fetch=FetchType.EAGER)
-	private List<TblRtOffersDel> tblRtOffersDelList;
+	@NotFound(action=NotFoundAction.IGNORE)
+	@OneToMany(mappedBy="tblServices",targetEntity=TblRtOffersDel.class,fetch=FetchType.EAGER)
+	private Set<TblRtOffersDel> tblRtOffersDelList;
 	
 	public Integer getServicesId() {
 		return servicesId;
@@ -178,19 +185,19 @@ public class TblServices implements Serializable{
 	}
 
 	
-	public List<TblRtOffers> getTblRtOffersList() {
+	public Set<TblRtOffers> getTblRtOffersList() {
 		return tblRtOffersList;
 	}
 
-	public void setTblRtOffersList(List<TblRtOffers> tblRtOffersList) {
+	public void setTblRtOffersList(Set<TblRtOffers> tblRtOffersList) {
 		this.tblRtOffersList = tblRtOffersList;
 	}
 
-	public List<TblRtOffersDel> getTblRtOffersDelList() {
+	public Set<TblRtOffersDel> getTblRtOffersDelList() {
 		return tblRtOffersDelList;
 	}
 
-	public void setTblRtOffersDelList(List<TblRtOffersDel> tblRtOffersDelList) {
+	public void setTblRtOffersDelList(Set<TblRtOffersDel> tblRtOffersDelList) {
 		this.tblRtOffersDelList = tblRtOffersDelList;
 	}
 

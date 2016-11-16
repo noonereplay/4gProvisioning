@@ -13,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 @Entity
 @Table(name="TBL_RT_OFFERS",schema="OMADM")
 public class TblRtOffers implements Serializable{
@@ -61,12 +64,14 @@ public class TblRtOffers implements Serializable{
 	@Column(name="REASON")
 	private String reason;
 	
-	@ManyToOne(optional=false)
-	@JoinColumn(name="SERVICES_ID",referencedColumnName="SERVICES_ID")
-	private TblServices services;
+	@ManyToOne(optional=true)
+	@JoinColumn(name="SERVICES_ID",referencedColumnName="SERVICES_ID",updatable=false,insertable=false,nullable=true)
+	@NotFound(action=NotFoundAction.IGNORE)
+	private TblServices tblServices;
 	
-	@ManyToOne(optional=false)
-	@JoinColumn(name="OFFER_ID",referencedColumnName="OFFER_ID",updatable=false,insertable=false)
+	@ManyToOne(optional=true)
+	@JoinColumn(name="OFFER_ID",referencedColumnName="OFFER_ID",updatable=false,insertable=false,nullable=true)
+	@NotFound(action=NotFoundAction.IGNORE)
 	private CfgRtSoExt cfgRtSoExt;
 
 	public Integer getRtOfferId() {
@@ -165,15 +170,14 @@ public class TblRtOffers implements Serializable{
 		this.reason = reason;
 	}
 
-	public TblServices getServices() {
-		return services;
+	public TblServices getTblServices() {
+		return tblServices;
 	}
 
-	public void setServices(TblServices services) {
-		this.services = services;
+	public void setTblServices(TblServices tblServices) {
+		this.tblServices = tblServices;
 	}
-	
-	
+
 	public CfgRtSoExt getCfgRtSoExt() {
 		return cfgRtSoExt;
 	}
@@ -187,6 +191,6 @@ public class TblRtOffers implements Serializable{
 		return "TblRtOffers [rtOfferId=" + rtOfferId + ", servicesId=" + servicesId + ", orderId=" + orderId
 				+ ", offerType=" + offerType + ", offerId=" + offerId + ", offerInstId=" + offerInstId + ", dateActive="
 				+ dateActive + ", dateInactive=" + dateInactive + ", connnectReason=" + connnectReason + ", soLevel="
-				+ soLevel + ", status=" + status + ", reason=" + reason + ", services=" + services + "]";
+				+ soLevel + ", status=" + status + ", reason=" + reason + ", services=" + tblServices + "]";
 	}
 }
