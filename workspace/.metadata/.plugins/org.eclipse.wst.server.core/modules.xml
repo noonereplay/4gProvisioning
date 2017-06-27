@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <modules>
-  <module moduleId="org.eclipse.jst.jee.server:ConverterApp" serverId="WildFly 10.x1476279454331"/>
+  <module moduleId="org.eclipse.jst.jee.server:ConverterApp"/>
 </modules>

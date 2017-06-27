@@ -1,8 +1,7 @@
 package cat.prv.listener;
 
 
-import java.io.ByteArrayInputStream;
-import java.util.Enumeration;
+
 import java.util.HashMap;
 
 import javax.jms.JMSException;
@@ -13,7 +12,7 @@ import javax.jms.TextMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
+
 
 import cat.prv.conv.services.TransService;
 

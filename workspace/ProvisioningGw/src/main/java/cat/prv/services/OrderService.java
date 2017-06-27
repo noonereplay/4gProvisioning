@@ -26,6 +26,8 @@ import cat.prv.om.entity.TblServices;
 import cat.prv.om.entity.TransDtl;
 import cat.prv.om.entity.TransHdr;
 import cat.prv.util.OrderType;
+import cat.rtc.gw.rs.domain.offer.OfferInfo;
+import cat.rtc.gw.rs.domain.subscriber.SubscriberInfo;
 
 @Service
 public class OrderService {
@@ -46,6 +48,9 @@ public class OrderService {
 	private TblRtOffersDelDao tblRtOffersDelDao;
 	@Autowired
 	private CfgRtSoExtDao cfgRtSoExtDao;
+	
+	@Autowired
+	private C1rtGwService c1rtGwService;
 	
 
 
@@ -84,7 +89,9 @@ public class OrderService {
 		this.provisioning4gService = provisioning4gService;
 	}
 	
-
+	public void setC1rtGwService(C1rtGwService c1rtGwService) {
+		this.c1rtGwService = c1rtGwService;
+	}
 
 	public boolean makeProvisioning4G(String transId) throws Exception {
 
@@ -129,11 +136,20 @@ public class OrderService {
 					 * if (stream.anyMatch(p -> p.getCfgRtSoExt() != null &&
 					 * p.getCfgRtSoExt().isProv4G())) { isProv = true; }
 					 */
-
+					
+					/*
 					if (ext != null && ext.isProv4G()) {
 						isProv = false;
 						provisioning(msisdn,tblServices.getImsi(),tblServices.getRtServiceType(), transId, isProv);
+					}*/
+					
+					
+					SubscriberInfo info = c1rtGwService.info(msisdn);
+					if(consist4GOffer(info) == false){
+						isProv = false;
+						provisioning(msisdn,tblServices.getImsi(),tblServices.getRtServiceType(), transId, isProv);
 					}
+					
 
 					System.out.println(transId + " isProv : " + isProv);
 
@@ -231,13 +247,29 @@ public class OrderService {
 		try {
 			serviceTypeStr = serviceType.toString();
 		} catch (Exception e) {
-			// TODO: handle exception
+			logger.error("serviceType Parser Error",e);
 		}
 		if (isProv4G) {
 			provisioning4gService.Enable4G(msisdn,imsi,serviceTypeStr,transId);
 		} else {
 			provisioning4gService.Disable4G(msisdn,imsi,serviceTypeStr,transId);
 		}
+	}
+	
+	
+	public boolean consist4GOffer(SubscriberInfo info){
+		
+		boolean result = false;
+		
+		for (OfferInfo offer : info.getOfferInfoList()) {
+			CfgRtSoExt ext = cfgRtSoExtDao.getCfgRtSoExt(String.valueOf(offer.getId()));
+			if(ext != null){
+				if(ext.isProv4G()){ return true;}
+				
+			}
+		}
+		return result;
+		
 	}
 
 }

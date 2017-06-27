@@ -1,25 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
-<fullyQualifiedTypeName name="org.slf4j.Logger"/>
-<fullyQualifiedTypeName name="cat.prv.om.dao.TblServicesDao"/>
-<fullyQualifiedTypeName name="javax.swing.text.rtf.RTFEditorKit"/>
-<fullyQualifiedTypeName name="cat.prv.om.entity.TblRtOffers"/>
-<fullyQualifiedTypeName name="oracle.sql.DATE"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="java.util.Set"/>
-<fullyQualifiedTypeName name="cat.prv.om.entity.TblRtOffersDel"/>
-<fullyQualifiedTypeName name="java.util.stream.Stream"/>
-<fullyQualifiedTypeName name="org.springframework.amqp.core.MessageListener"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="javax.inject.Qualifier"/>
-<fullyQualifiedTypeName name="org.springframework.amqp.support.converter.Jackson2JsonMessageConverter"/>
-<fullyQualifiedTypeName name="cat.prv.om.dao.TransHdrDao"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="cat.prv.util.OrderType"/>
 <fullyQualifiedTypeName name="cat.prv.om.entity.TransHdr"/>
 <fullyQualifiedTypeName name="cat.prv.services.OrderService"/>
 <fullyQualifiedTypeName name="org.springframework.http.client.ClientHttpRequestFactory"/>
@@ -52,7 +32,6 @@
 <fullyQualifiedTypeName name="cat.prv.om.entity.Prv4gTrans"/>
 <fullyQualifiedTypeName name="cat.prv.om.dao.Prv4gTransDao"/>
 <fullyQualifiedTypeName name="cat.prv.services.TransService"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="javax.persistence.SequenceGenerator"/>
 <fullyQualifiedTypeName name="javax.transaction.Transactional"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
@@ -60,4 +39,25 @@
 <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
 <fullyQualifiedTypeName name="javax.persistence.Basic"/>
 <fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
+<fullyQualifiedTypeName name="org.apache.http.impl.client.HttpClients"/>
+<fullyQualifiedTypeName name="org.apache.http.client.methods.HttpGet"/>
+<fullyQualifiedTypeName name="org.apache.http.client.methods.CloseableHttpResponse"/>
+<fullyQualifiedTypeName name="org.apache.http.impl.client.CloseableHttpClient"/>
+<fullyQualifiedTypeName name="org.apache.http.HttpEntity"/>
+<fullyQualifiedTypeName name="org.apache.http.Header"/>
+<fullyQualifiedTypeName name="org.apache.http.util.EntityUtils"/>
+<fullyQualifiedTypeName name="cat.rtc.gw.rs.api.SubscribersResource"/>
+<fullyQualifiedTypeName name="cat.rtc.gw.rs.domain.offer.OfferInfo"/>
+<fullyQualifiedTypeName name="cat.prv.services.C1rtGwService"/>
+<fullyQualifiedTypeName name="cat.rtc.gw.rs.domain.subscriber.SubscriberInfo"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.springframework.http.HttpHeaders"/>
+<fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
+<fullyQualifiedTypeName name="javax.annotation.Resource"/>
+<fullyQualifiedTypeName name="org.junit.BeforeClass"/>
+<fullyQualifiedTypeName name="org.springframework.web.client.HttpServerErrorException"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
 </qualifiedTypeNameHistroy>

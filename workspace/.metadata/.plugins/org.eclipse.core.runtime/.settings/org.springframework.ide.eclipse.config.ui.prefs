@@ -7,7 +7,7 @@
 //com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/webapp/WEB-INF/jboss-as-spring-mvc-context.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/webapp/WEB-INF/spring-servlet.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/webapp/WEB-INF/spring-web-servlet.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
-//com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/webapp/WEB-INF/spring/ApplicationContext.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/webapp/WEB-INF/spring/ApplicationContext.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage id\="com.springsource.sts.config.ui.editors.namespaces" index\="1" kind\="formPage"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/webapp/WEB-INF/spring/ApplicationContextTest.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/webapp/WEB-INF/spring/datasource-dev.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/ProvisioningGw/src/main/webapp/WEB-INF/spring/datasource-prd.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>

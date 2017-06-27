@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure  >  
+    <deployment>
+        <!-- exclude-subsystem prevents a subsystems deployment unit processors running on a deployment -->  
+        <!-- which gives basically the same effect as removing the subsystem, but it only affects single deployment -->  
+        <exclude-subsystems>  
+            <subsystem name="logging" />
+            <subsystem name="webservices" />
+        </exclude-subsystems>
+        <dependencies>
+            <module name="javax.xml.ws.api"/>
+            <module name="javax.ws.rs.api"/>
+            <module name="javax.jws.api"/>
+            <module name="org.apache.cxf"/>
+        </dependencies>
+        
+        
+    </deployment>
+</jboss-deployment-structure>

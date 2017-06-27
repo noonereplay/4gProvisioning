@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jboss-deployment-structure>  
+<jboss-deployment-structure  >  
     <deployment>
         <!-- exclude-subsystem prevents a subsystems deployment unit processors running on a deployment -->  
         <!-- which gives basically the same effect as removing the subsystem, but it only affects single deployment -->  
@@ -7,5 +7,7 @@
             <subsystem name="logging" />
             <subsystem name="webservices" />
         </exclude-subsystems>
+
+        
     </deployment>
 </jboss-deployment-structure>

@@ -2,13 +2,11 @@ package cat.prv.listener;
 
 import java.util.HashMap;
 
-import javax.annotation.Resource;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.rabbit.listener.exception.ListenerExecutionFailedException;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,6 +103,8 @@ public class OrderQueueListener implements MessageListener, BeanNameAware{
 			HashMap<String, String> map = (HashMap<String, String>)jsonConvertor.fromMessage(msg);
 			String transId = map.get("transId");
 			
+			//logger.debug("Consume transId  [{}]",transId);
+			
 			TransHdr transHdr = transService.getTransHdr(transId);
 			
 			RabbitTemplate rabbitTemplate = null;
@@ -129,7 +129,9 @@ public class OrderQueueListener implements MessageListener, BeanNameAware{
 			}else if(transHdr.getOrderType() == OrderType.ACTIVATE_SO){
 				rabbitTemplate = actSoAmqpTemplate;
 			}
-				
+			
+			
+			
 			if(rabbitTemplate != null){
 				rabbitTemplate.convertAndSend(map);
 			}	

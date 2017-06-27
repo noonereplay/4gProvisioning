@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,13 +34,14 @@ import cat.prv.services.OrderService;
 import cat.prv.services.Provisioning4GService;
 import cat.prv.services.TransService;
 
-
-@TestPropertySource(properties = { "spring.profiles.active=dev","jboss.server.log.dir=D:\\Development\\Application Server\\wildfly-10.1.0.Final\\standalone\\log"})
+/*
+@TestPropertySource(properties = { "spring.profiles.active=dev","jboss.server.log.dir=C:\\Development\\Application Server\\wildfly-10.1.0.Final\\standalone\\log"})
 @ActiveProfiles("dev")
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/ApplicationContext.xml",
 		"file:src/main/webapp/WEB-INF/spring-servlet.xml",})
 @WebAppConfiguration
+*/
 public class ApplicationContextTest {
 
 	@Autowired
@@ -68,6 +70,7 @@ public class ApplicationContextTest {
 	
 	@Autowired
 	TransService transService;
+
 	
 	//@Test
     public void testTrans() {
@@ -190,7 +193,7 @@ public class ApplicationContextTest {
 		System.out.println("Test Delete SO2 Service Completed");
 	}
 	
-	@Test
+	//@Test
 	public void testProvisioning(){
 		
 		System.out.println();
@@ -210,9 +213,10 @@ public class ApplicationContextTest {
 			transService.saveHlrTrans(request, response);
 			System.out.println("Response : "+response);
 		} catch (Exception e) {
+			
 			e.printStackTrace();
 		}
-		
+
 		
 		System.out.println("Test Provisioning Service Completed");
 	}

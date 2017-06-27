@@ -15,15 +15,15 @@
     </appender>
 
 	<!--<logger name="org.hibernate" level="debug"/> -->
-    <logger name="org.springframework" level="warn"> 
+    <logger name="org.springframework" level="warn" additivity="false"> 
     	<appender-ref ref="FILE" />
     </logger>
     
-    <logger name="cat.clm" level="debug">
+    <logger name="cat.prv" level="DEBUG" additivity="false">
     	<appender-ref ref="FILE" />
     </logger> 
     
-    <logger name="oracle.jdbc" level="warn"> 
+    <logger name="oracle.jdbc" level="warn" additivity="false"> 
     	<appender-ref ref="FILE" />
     </logger>
     

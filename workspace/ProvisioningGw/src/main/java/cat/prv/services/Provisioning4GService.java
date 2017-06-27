@@ -6,12 +6,17 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.URI;
 
+import javax.annotation.Resource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.ClientHttpResponse;
@@ -42,6 +47,7 @@ public class Provisioning4GService {
     private ObjectMapper mapper;
     
     @Autowired
+    @Resource(name="hlrRestTemplate")
     private RestTemplate restTemplate;
     
     @Autowired
@@ -109,8 +115,23 @@ public class Provisioning4GService {
 	}
 
 	public HlrResponse callHlrRest(HlrRequest hlrRequest){
-		HttpEntity<HlrRequest> request = new HttpEntity<>(hlrRequest);
-		HlrResponse response = restTemplate.postForObject(hlrEndPoint, request, HlrResponse.class);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.TEXT_XML);
+		
+		HttpEntity<HlrRequest> request = new HttpEntity<>(hlrRequest,headers);
+		
+		HlrResponse response = null ;
+		try {
+			response = restTemplate.postForObject(hlrEndPoint, request, HlrResponse.class);
+			/*ResponseEntity<HlrResponse> entity = restTemplate
+					  .exchange(hlrEndPoint, HttpMethod.POST, request, HlrResponse.class);
+			response  = entity.getBody();*/
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("Error HlrRestTemplate",e);
+		}
+		
 		
 		return response;
 	}
@@ -124,7 +145,7 @@ public class Provisioning4GService {
 	    "<IMSI>" + imsi + "</IMSI>" + 
 	    "<OMTRANS_ID>" + transId + "</OMTRANS_ID>" + 
 	    "<SUB_TYPE>" + subType + "</SUB_TYPE>" + 
-	    "</HLR_IN>\t";
+	    "</HLR_IN>";
 	    
 	    OutputStream os = request.getBody();
 	    OutputStreamWriter wr = new OutputStreamWriter(os);

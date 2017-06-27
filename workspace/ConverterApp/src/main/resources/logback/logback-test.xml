@@ -19,7 +19,11 @@
     	<appender-ref ref="FILE" />
     </logger>
     
-    <logger name="cat.clm" level="DEBUG" additivity="false">
+    <logger name="org.springframework.amqp" level="DEBUG" additivity="false"> 
+    	<appender-ref ref="FILE" />
+    </logger>
+    
+    <logger name="cat.prv" level="DEBUG" additivity="false">
     	<appender-ref ref="FILE" />
     </logger> 
     

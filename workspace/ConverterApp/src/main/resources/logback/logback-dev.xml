@@ -19,7 +19,7 @@
     	<appender-ref ref="FILE" />
     </logger>
     
-    <logger name="cat.clm" level="debug" additivity="true">
+    <logger name="cat.prv" level="debug" additivity="true">
     	<appender-ref ref="FILE" />
     </logger> 
     

@@ -74,13 +74,13 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="cat.prov.test.SimpleTest"/>
+			<item value="cat.url.TestHttpUrl"/>
 		</list>
 		<list key="groupId">
-			<item value="cat.prov.test"/>
+			<item value="cat.url"/>
 		</list>
 		<list key="artifactId">
-			<item value="SimpleTest"/>
+			<item value="TestHttpUrl"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

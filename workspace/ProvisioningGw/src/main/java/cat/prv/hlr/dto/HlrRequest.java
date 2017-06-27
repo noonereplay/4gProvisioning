@@ -63,5 +63,10 @@ public class HlrRequest implements Serializable{
 	public void setSubType(String subType) {
 		this.subType = subType;
 	}
+	@Override
+	public String toString() {
+		return "HlrRequest [action=" + action + ", msisdn=" + msisdn + ", imsi=" + imsi + ", omtransId=" + omtransId
+				+ ", subType=" + subType + "]";
+	}
 	
 }
