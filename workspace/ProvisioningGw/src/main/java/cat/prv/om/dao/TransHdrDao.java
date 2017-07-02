@@ -21,6 +21,11 @@ public class TransHdrDao {
 	@Transactional
 	public TransHdr getTransHdr(String transId){
 		return em.find(TransHdr.class, transId);
+		
+		
+		/*return em.createNamedQuery("TransHdrId", TransHdr.class)
+        .setParameter("transId", transId)
+        .getSingleResult();*/
 	}
 	
 }

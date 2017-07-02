@@ -8,7 +8,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -20,6 +21,10 @@ import cat.prv.util.OrderType;
 
 @Entity
 @Table(name="TRANS_HDR",schema="OMADM")
+/*@NamedNativeQueries({
+	@NamedNativeQuery(name="TransHdrId", query= "select * from OMADM.TRANS_HDR where TRANS_ID = :transId",resultClass=TransHdr.class)
+}
+)*/
 public class TransHdr implements Serializable{
 
 	/**

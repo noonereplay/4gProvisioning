@@ -13,6 +13,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import cat.prv.om.entity.TransDtl;
+import cat.prv.om.entity.TransHdr;
 
 @Repository
 public class TransDtlDao {
@@ -24,6 +25,7 @@ public class TransDtlDao {
 		this.em = em;
 	}
 	
+	@Transactional
 	public TransDtl getTransDtl(String transDtlId){
 		return em.find(TransDtl.class, transDtlId);
 	}
@@ -43,6 +45,14 @@ public class TransDtlDao {
 		
 		return result;
 	}
+	
+	/*
+	@Transactional
+	public TransDtl getTransDtlById(String transDtlId){
+		return em.createNamedQuery("TransdDtlId", TransDtl.class)
+        .setParameter("transDtlId", transDtlId)
+        .getSingleResult();
+	}*/
 	
 	
 }

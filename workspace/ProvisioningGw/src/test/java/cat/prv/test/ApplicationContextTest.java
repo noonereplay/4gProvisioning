@@ -34,14 +34,14 @@ import cat.prv.services.OrderService;
 import cat.prv.services.Provisioning4GService;
 import cat.prv.services.TransService;
 
-/*
-@TestPropertySource(properties = { "spring.profiles.active=dev","jboss.server.log.dir=C:\\Development\\Application Server\\wildfly-10.1.0.Final\\standalone\\log"})
+
+@TestPropertySource(properties = { "spring.profiles.active=dev","jboss.server.log.dir=D:\\Development\\Application Server\\wildfly-10.1.0.Final\\standalone\\log"})
 @ActiveProfiles("dev")
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/ApplicationContext.xml",
 		"file:src/main/webapp/WEB-INF/spring-servlet.xml",})
 @WebAppConfiguration
-*/
+
 public class ApplicationContextTest {
 
 	@Autowired
@@ -72,7 +72,7 @@ public class ApplicationContextTest {
 	TransService transService;
 
 	
-	//@Test
+	@Test
     public void testTrans() {
 		
 		/*List<String> testList = null;
@@ -81,15 +81,15 @@ public class ApplicationContextTest {
 		}*/
 		
 
-		testTransHdr("U1610190000018865313");
-		testTransHdr("U1610200000018902794");
+		testTransHdr("T1705290000000044167");
+		/*testTransHdr("U1610200000018902794");
 		testTransDtl("U1610190000018865313","D1610190000041466173");
 		testTransDtl("U1610200000018902794","D1610200000041545198");
         testTblServices();
         testTblServicesHistory();
         testTblRtOffers();
         testTblRtOffersDel();
-        
+        */
         
     }
 	

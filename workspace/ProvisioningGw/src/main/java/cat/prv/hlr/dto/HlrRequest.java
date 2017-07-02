@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="HLR_IN")
 @XmlType(propOrder={"action","msisdn","imsi","omtransId","subType"})
-@XmlAccessorType(XmlAccessType.NONE)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class HlrRequest implements Serializable{
 
 	/**

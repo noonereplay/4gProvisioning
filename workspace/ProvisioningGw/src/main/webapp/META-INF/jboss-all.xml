@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jboss>
-    <weld xmlns="urn:jboss:weld:1.0" require-bean-descriptor="true"/>
+    <weld xmlns="urn:jboss:weld:1.1" require-bean-descriptor="true"/>
 </jboss>

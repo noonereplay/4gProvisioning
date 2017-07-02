@@ -76,8 +76,12 @@ public class ProvisioningListener implements MessageListener {
 		try {
 			HashMap<String, String> map = (HashMap<String, String>)jsonConvertor.fromMessage(msg);
 			String transId = map.get("transId");
+			logger.debug("Consuming transId [{}]",transId);
+			
 			
 			TransHdr transHdr = transService.getTransHdr(transId);
+			
+			logger.debug("Consuming TransHdr {}",transHdr == null);
 			if(allowList.stream().anyMatch(p -> p == transHdr.getOrderType())){
 				orderService.makeProvisioning4G(transId);
 			}

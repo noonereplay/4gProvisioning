@@ -7,10 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="TRANS_DTL",schema="OMADM")
+/*@NamedNativeQueries({
+	@NamedNativeQuery(name="TransdDtlId", query= "select * from OMADM.TRANS_DTL where TRANS_DTL_ID = :transDtlId",resultClass=TransDtl.class)
+}
+)*/
 public class TransDtl implements Serializable{
 
 	/**

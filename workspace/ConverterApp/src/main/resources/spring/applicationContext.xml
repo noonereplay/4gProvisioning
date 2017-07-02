@@ -35,7 +35,7 @@
 	</bean>
 	
 	<context:property-placeholder/>
-    <context:component-scan base-package="cat.clm" />
+    <context:component-scan base-package="cat.prv" />
     
     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
         <property name="jndiName" value="java:${jndi.prefix}jdbc/om_prov_db"/>
