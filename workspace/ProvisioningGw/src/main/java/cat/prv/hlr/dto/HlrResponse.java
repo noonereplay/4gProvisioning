@@ -8,9 +8,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+
 @XmlRootElement(name="HLR_Res")
 @XmlType(propOrder={"omTransId","action","msisdn","imsi","status","responseMsg"})
-@XmlAccessorType(XmlAccessType.NONE)
+@XmlAccessorType(XmlAccessType.FIELD)
+@JacksonXmlRootElement(localName="HLR_Res")
 public class HlrResponse implements Serializable{
 
 	/**
@@ -19,21 +23,27 @@ public class HlrResponse implements Serializable{
 	private static final long serialVersionUID = -9036861749995001536L;
 
 	@XmlElement(name="OMTRANS_ID")
+	@JacksonXmlProperty(localName="OMTRANS_ID")
 	private String omTransId;
 	
 	@XmlElement(name="ACTION")
+	@JacksonXmlProperty(localName="ACTION")
 	private String action;
 	
 	@XmlElement(name="MSISDN")
+	@JacksonXmlProperty(localName="MSISDN")
 	private String msisdn;
 	
 	@XmlElement(name="IMSI")
+	@JacksonXmlProperty(localName="IMSI")
 	private String imsi;
 	
 	@XmlElement(name="STATUS")
+	@JacksonXmlProperty(localName="STATUS")
 	private String status;
 	
 	@XmlElement(name="RES_MSG")
+	@JacksonXmlProperty(localName="RES_MSG")
 	private String responseMsg;
 
 	public String getOmTransId() {

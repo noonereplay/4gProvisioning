@@ -43,7 +43,7 @@
 		<appender-ref ref="FILE" />
 	</logger>
 	
-	<logger name="com.fasterxml" level="error"
+	<logger name="com.fasterxml" level="ERROR"
 		additivity="true">
 		<appender-ref ref="FILE" />
 	</logger>
@@ -53,7 +53,7 @@
 		<appender-ref ref="FILE" />
 	</logger>
     
-    <root level="DEBUG">
+    <root level="WARN">
         <appender-ref ref="STDOUT"/>
     </root>
 

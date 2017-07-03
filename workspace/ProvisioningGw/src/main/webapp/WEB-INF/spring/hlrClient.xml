@@ -2,7 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+<<<<<<< HEAD
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+=======
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+>>>>>>> branch 'master' of https://github.com/noonereplay/4gProvisioning.git
 
 	<bean id="clientHttpRequestFactory"
 		class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory">
@@ -12,10 +16,15 @@
 		<property name="requestFactory" ref="clientHttpRequestFactory"></property>
 		<property name="messageConverters">
 			<list>
-			<bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter">
+<!-- 			<bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"> -->
+<!-- 			</bean> -->
+			
+			<bean id="mappingJackson2XmlHttpMessageConverter" class="org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter">
+				<property name="objectMapper"  ref="xmlMapper"></property>
 			</bean>
 			</list>
 		</property>
+		<property name="interceptors" ref="requestLoggingInterceptor" ></property>
 	</bean>
 
 	<bean id="uriTemplate" class="org.springframework.web.util.UriTemplate">
@@ -28,7 +37,9 @@
 		</constructor-arg>
 	</bean>
 
+ 	<bean id="requestLoggingInterceptor" class="cat.prv.services.RequestLoggingInterceptor"></bean>
 	<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper" />
+	<bean id="xmlMapper" class="com.fasterxml.jackson.dataformat.xml.XmlMapper" />
 
 
 </beans>

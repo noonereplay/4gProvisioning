@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.URI;
+import java.util.Arrays;
 
 import javax.annotation.Resource;
 
@@ -20,11 +21,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.ClientHttpResponse;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 import cat.prv.hlr.dto.HlrRequest;
 import cat.prv.hlr.dto.HlrResponse;
@@ -44,6 +47,7 @@ public class Provisioning4GService {
     private String hlrEndPoint;
     
     @Autowired
+    @Resource(name="objectMapper")
     private ObjectMapper mapper;
     
     @Autowired
@@ -117,10 +121,11 @@ public class Provisioning4GService {
 	public HlrResponse callHlrRest(HlrRequest hlrRequest){
 		
 		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.TEXT_XML);
+		headers.setContentType(MediaType.APPLICATION_XML);
+		headers.setAccept(Arrays.asList(new MediaType[]{MediaType.APPLICATION_XML}));
 		
 		HttpEntity<HlrRequest> request = new HttpEntity<>(hlrRequest,headers);
-		
+
 		HlrResponse response = null ;
 		try {
 			response = restTemplate.postForObject(hlrEndPoint, request, HlrResponse.class);
@@ -171,6 +176,7 @@ public class Provisioning4GService {
 		        sb.append(contentLine);
 		    contentLine = rd.readLine();
 		}
+		rd.close();
 	    
 	    try{
 	        String res_work = sb.toString();

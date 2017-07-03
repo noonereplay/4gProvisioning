@@ -15,7 +15,15 @@
     </appender>
 
 	<!--<logger name="org.hibernate" level="debug"/> -->
-    <logger name="org.springframework" level="trace" additivity="false"> 
+    <logger name="org.springframework" level="warn" additivity="false"> 
+    	<appender-ref ref="FILE" />
+    </logger>
+    
+    
+    <logger name="org.springframework.web.client" level="trace" additivity="false"> 
+    	<appender-ref ref="FILE" />
+    </logger>
+    <logger name="org.springframework.http" level="trace" additivity="false"> 
     	<appender-ref ref="FILE" />
     </logger>
     
@@ -32,17 +40,17 @@
 		<appender-ref ref="FILE" />
 	</logger>
 	
-	<logger name="org.hibernate" level="debug"	additivity="false">
+	<logger name="org.hibernate" level="error"	additivity="false">
 		<appender-ref ref="FILE" />
 	</logger>
 	
 	
-	<logger name="org.apache" level="error"
+	<logger name="org.apache" level="warn"
 		additivity="false">
 		<appender-ref ref="FILE" />
 	</logger>
 	
-	<logger name="com.fasterxml" level="error"
+	<logger name="com.fasterxml" level="debug"
 		additivity="false">
 		<appender-ref ref="FILE" />
 	</logger>
