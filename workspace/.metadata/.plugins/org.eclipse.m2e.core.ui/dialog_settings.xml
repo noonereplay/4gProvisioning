@@ -33,6 +33,12 @@
 		<list key="issueManagementUrl">
 		</list>
 	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.dialogs.EditDependencyDialog">
+		<item value="480" key="width"/>
+		<item value="443" key="x"/>
+		<item value="64" key="y"/>
+		<item value="450" key="height"/>
+	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
 			<item value="D:\Development\GitHub\4gProvisioning\workspace\SmsApp"/>
@@ -93,5 +99,11 @@
 		<list key="version">
 			<item value="0.0.1-SNAPSHOT"/>
 		</list>
+	</section>
+	<section name="org.eclipse.m2e.editor.dialogs.ManageDependenciesDialog">
+		<item value="633" key="width"/>
+		<item value="367" key="x"/>
+		<item value="0" key="y"/>
+		<item value="728" key="height"/>
 	</section>
 </section>
